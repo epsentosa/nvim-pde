@@ -36,6 +36,8 @@ keymap("v", "K", ":m '<-2<CR>gv=gv")
 keymap("n", "J", "mzJ`z")
 keymap("n", "<C-d>", "<C-d>zz")
 keymap("n", "<C-u>", "<C-u>zz")
+keymap("n", "<C-f>", "<C-f>zz")
+keymap("n", "<C-b>", "<C-b>zz")
 keymap("n", "n", "nzzzv")
 keymap("n", "N", "Nzzzv")
 
@@ -46,7 +48,18 @@ keymap({"n", "v"}, "<leader>d", [["_d]])
 keymap({"n", "v"}, "<C-c>", [["+y]])
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<leader>p', vim.diagnostic.open_float)
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
+keymap('n', '[d', vim.diagnostic.goto_prev)
+keymap('n', ']d', vim.diagnostic.goto_next)
+keymap('n', '<leader>df', vim.diagnostic.open_float)
+keymap('n', '<leader>q', vim.diagnostic.setloclist)
+
+-- Toggle diagnostic
+local diagnostics_active = true
+vim.keymap.set('n', '<leader>d', function()
+  diagnostics_active = not diagnostics_active
+  if diagnostics_active then
+    vim.diagnostic.show()
+  else
+    vim.diagnostic.hide()
+  end
+end)
