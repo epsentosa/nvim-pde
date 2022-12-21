@@ -8,8 +8,8 @@ keymap("n", "<leader>e", vim.cmd.Ex, opts)
 
 -- buffer management
 keymap("n", "<leader>c", vim.cmd.bdelete, opts)
-keymap("n", "[", vim.cmd.bp, opts)
-keymap("n", "]", vim.cmd.bn, opts)
+-- keymap("n", "[", vim.cmd.bp, opts)
+-- keymap("n", "]", vim.cmd.bn, opts)
 
 -- Insert --
 -- Press jk fast to enter
@@ -44,9 +44,6 @@ keymap({"n", "v"}, "<leader>d", [["_d]])
 
 -- copy just only use for mac
 keymap({"n", "v"}, "<C-c>", [["+y]])
-
--- change regex directly
-keymap("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)

@@ -104,11 +104,6 @@ _G.packer_plugins = {
     path = "/Users/ekoputra/.local/share/nvim/site/pack/packer/start/fidget.nvim",
     url = "https://github.com/j-hui/fidget.nvim"
   },
-  ["git-blame.nvim"] = {
-    loaded = true,
-    path = "/Users/ekoputra/.local/share/nvim/site/pack/packer/start/git-blame.nvim",
-    url = "https://github.com/f-person/git-blame.nvim"
-  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/Users/ekoputra/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
