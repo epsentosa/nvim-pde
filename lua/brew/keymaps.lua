@@ -4,7 +4,7 @@ local keymap = vim.keymap.set
 -- Silent keymap option
 local opts = { silent = true }
 
-keymap("n", "<leader>e", vim.cmd.Ex, opts)
+keymap("n", "<leader>e", vim.cmd.NvimTreeToggle, opts)
 
 -- buffer management
 keymap("n", "<leader>c", vim.cmd.bdelete, opts)

@@ -1,5 +1,8 @@
 vim.opt.guicursor = ""
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -38,4 +41,4 @@ vim.opt.mouse = "a" -- allow the mouse to be used in neovim
 vim.opt.ttimeoutlen=100
 
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
+vim.o.completeopt = 'menu,menuone,noselect'
