@@ -27,4 +27,10 @@ require("catppuccin").setup({
     },
 })
 
+require('onedark').setup {
+    style = 'deep',
+    transparent = true,  -- Show/hide background
+}
+require('onedark').load()
+
 vim.cmd.colorscheme("dracula")

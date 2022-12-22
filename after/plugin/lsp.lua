@@ -60,7 +60,7 @@ local servers = {
     analysis = {
       autoSearchPaths = false,
       useLibraryCodeForTypes = false,
-      typeCheckingMode = 'basic',
+      typeCheckingMode = 'off',
       },
     },
   },
@@ -155,3 +155,16 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
+-- Change Sign Symbol
+local function lspSymbol(name, icon)
+vim.fn.sign_define(
+	'DiagnosticSign' .. name,
+	{ text = icon, numhl = 'DiagnosticDefault' .. name }
+)
+end
+lspSymbol('Error', '')
+lspSymbol('Info', '')
+lspSymbol('Hint', '')
+lspSymbol('Info', '')
+lspSymbol('Warn', '')

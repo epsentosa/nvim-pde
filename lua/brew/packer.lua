@@ -45,14 +45,19 @@ return require('packer').startup(function(use)
   use('tpope/vim-sleuth') -- Detect tabstop and shiftwidth automatically
   use('lukas-reineke/indent-blankline.nvim') -- Add indentation guides even on blank lines
   use('lewis6991/gitsigns.nvim')
-
+  use('windwp/nvim-autopairs')
+  use {
+    "kylechui/nvim-surround",
+    config = function() require("nvim-surround").setup({}) end
+  }
   -- startup
   use ("lewis6991/impatient.nvim") -- https://github.com/lewis6991/impatient.nvim
 
   -- theme
-  use ('folke/tokyonight.nvim')
-  use ('catppuccin/nvim')
-  use ('Mofiqul/dracula.nvim')
+  use('folke/tokyonight.nvim')
+  use('catppuccin/nvim')
+  use('Mofiqul/dracula.nvim')
+  use('navarasu/onedark.nvim')
 
   --LSP
   use { -- LSP Configuration & Plugins
