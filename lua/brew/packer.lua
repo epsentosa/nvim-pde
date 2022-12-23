@@ -65,6 +65,8 @@ return require('packer').startup(function(use)
   use('catppuccin/nvim')
   use('Mofiqul/dracula.nvim')
   use('navarasu/onedark.nvim')
+  use('tanvirtin/monokai.nvim')
+  use('patstockwell/vim-monokai-tasty')
 
   --LSP
   use { -- LSP Configuration & Plugins

@@ -5,6 +5,7 @@ local keymap = vim.keymap.set
 local opts = { silent = true }
 
 keymap("n", "<leader>e", vim.cmd.NvimTreeToggle, opts)
+keymap("n", "<leader>t", vim.cmd.TransparentToggle, opts)
 
 -- buffer management
 keymap("n", "<leader>c", vim.cmd.bdelete, opts)

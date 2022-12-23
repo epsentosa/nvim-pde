@@ -10,9 +10,16 @@ vim.g.loaded_netrwPlugin = 1
 
 -- configure nvim-tree
 nvimtree.setup({
-   view = {
+  view = {
       adaptive_size = true,
       width = 20,
+  },
+  update_focused_file = {
+    enable = true,
+  },
+  git = {
+    enable = false,
+    ignore = false,
   },
   -- disable window_picker for
   -- explorer to work well with
