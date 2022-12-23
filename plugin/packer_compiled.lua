@@ -154,6 +154,11 @@ _G.packer_plugins = {
     path = "/Users/ekoputra/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["monokai.nvim"] = {
+    loaded = true,
+    path = "/Users/ekoputra/.local/share/nvim/site/pack/packer/start/monokai.nvim",
+    url = "https://github.com/tanvirtin/monokai.nvim"
+  },
   ["neodev.nvim"] = {
     loaded = true,
     path = "/Users/ekoputra/.local/share/nvim/site/pack/packer/start/neodev.nvim",
@@ -249,6 +254,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/ekoputra/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
+  },
+  ["vim-monokai-tasty"] = {
+    loaded = true,
+    path = "/Users/ekoputra/.local/share/nvim/site/pack/packer/start/vim-monokai-tasty",
+    url = "https://github.com/patstockwell/vim-monokai-tasty"
   },
   ["vim-sleuth"] = {
     loaded = true,
