@@ -51,6 +51,8 @@ return require('packer').startup(function(use)
     "kylechui/nvim-surround",
     config = function() require("nvim-surround").setup({}) end
   }
+  use('mg979/vim-visual-multi') -- auto run, no need to setup
+
   -- startup
   use ("lewis6991/impatient.nvim") -- https://github.com/lewis6991/impatient.nvim
 

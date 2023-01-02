@@ -42,3 +42,6 @@ vim.opt.ttimeoutlen=100
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menu,menuone,noselect'
+
+-- set winbar
+vim.cmd [[set winbar=%m\ %f]]
