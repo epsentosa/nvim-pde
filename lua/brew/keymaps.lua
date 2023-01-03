@@ -12,6 +12,9 @@ keymap("n", "<leader>c", vim.cmd.bdelete, opts)
 -- keymap("n", "[", vim.cmd.bp, opts)
 -- keymap("n", "]", vim.cmd.bn, opts)
 
+-- Aerial Outline
+keymap('n', '<leader>o', '<cmd>AerialToggle!<CR>')
+
 -- Insert --
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
@@ -56,7 +59,7 @@ keymap('n', '<leader>q', vim.diagnostic.setloclist)
 
 -- Toggle diagnostic
 local diagnostics_active = true
-vim.keymap.set('n', '<leader>d', function()
+vim.keymap.set('n', '<leader>da', function()
   diagnostics_active = not diagnostics_active
   if diagnostics_active then
     vim.diagnostic.show()
