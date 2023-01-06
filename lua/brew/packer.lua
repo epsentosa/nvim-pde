@@ -53,6 +53,14 @@ return require('packer').startup(function(use)
   }
   use('mg979/vim-visual-multi') -- auto run, no need to setup
   use('stevearc/aerial.nvim')
+    -- Packer
+  use({
+    "jackMort/ChatGPT.nvim",
+      requires = {
+	"MunifTanjim/nui.nvim",
+	"nvim-lua/plenary.nvim",
+      }
+  })
 
   -- startup
   use ("lewis6991/impatient.nvim") -- https://github.com/lewis6991/impatient.nvim

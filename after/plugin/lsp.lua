@@ -50,17 +50,16 @@ local servers = {
   -- tsserver = {},
   -- gopls = {},
 
-  pyright = {
-    pyright = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-      openFilesOnly = false,
-    },
-    python = {
-    analysis = {
-      autoSearchPaths = false,
-      useLibraryCodeForTypes = false,
-      typeCheckingMode = 'off',
+  pylsp = {
+    pylsp = {
+      plugins = {
+        pyflakes = {enabled = false},
+        -- pylint = {enabled = false},
+        autopep8 = {enabled = false},
+        -- yapf = {enabled = false},
+        mccabe = {enabled = false},
+        pycodestyle = {enabled = false},
+        -- pydocstyle = {enabled = false},
       },
     },
   },
