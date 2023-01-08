@@ -44,4 +44,4 @@ vim.opt.ttimeoutlen=100
 vim.o.completeopt = 'menu,menuone,noselect'
 
 -- set winbar
-vim.cmd [[set winbar=%m\ %f]]
+-- vim.cmd [[set winbar=%m\ %f]]  -- Used when not using bufferline

@@ -8,16 +8,16 @@ keymap("n", "<leader>e", vim.cmd.NvimTreeToggle, opts)
 keymap("n", "<leader>t", vim.cmd.TransparentToggle, opts)
 
 -- buffer management
-keymap("n", "<leader>c", vim.cmd.bdelete, opts)
--- keymap("n", "[", vim.cmd.bp, opts)
--- keymap("n", "]", vim.cmd.bn, opts)
+keymap("n", "qq", '<cmd>Bdelete this<CR>', opts)
+keymap("n", "H", vim.cmd.TablineBufferPrevious, opts)
+keymap("n", "L", vim.cmd.TablineBufferNext, opts)
 
 -- Aerial Outline
 keymap('n', '<leader>o', '<cmd>AerialToggle!<CR>')
 
 -- Insert --
 -- Press jk fast to enter
-keymap("i", "jk", "<ESC>", opts)
+-- keymap("i", "jk", "<ESC>", opts)  -- Currently use CapSlock, no need to map
 
 -- Visual --
 -- Stay in indent mode

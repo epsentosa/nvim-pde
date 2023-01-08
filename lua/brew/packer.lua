@@ -53,7 +53,9 @@ return require('packer').startup(function(use)
   }
   use('mg979/vim-visual-multi') -- auto run, no need to setup
   use('stevearc/aerial.nvim')
-    -- Packer
+  use('norcalli/nvim-colorizer.lua')
+
+  -- Chat GPT
   use({
     "jackMort/ChatGPT.nvim",
       requires = {
@@ -64,6 +66,14 @@ return require('packer').startup(function(use)
 
   -- startup
   use ("lewis6991/impatient.nvim") -- https://github.com/lewis6991/impatient.nvim
+
+  -- Bufferline
+  -- use {'akinsho/bufferline.nvim'}
+  use 'Asheq/close-buffers.vim'
+  use {
+  'kdheepak/tabline.nvim',
+  requires = { { 'hoob3rt/lualine.nvim', opt=true }, {'kyazdani42/nvim-web-devicons', opt = true} }
+  }
 
   -- file explorer
   use("nvim-tree/nvim-tree.lua")
