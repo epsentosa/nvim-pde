@@ -89,6 +89,9 @@ return require('packer').startup(function(use)
   use('tanvirtin/monokai.nvim')
   use('patstockwell/vim-monokai-tasty')
 
+  -- lazygit
+  use 'kdheepak/lazygit.nvim'
+
   --LSP
   use { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',

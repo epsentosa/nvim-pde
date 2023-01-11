@@ -12,6 +12,9 @@ keymap("n", "qq", '<cmd>Bdelete this<CR>', opts)
 keymap("n", "H", vim.cmd.TablineBufferPrevious, opts)
 keymap("n", "L", vim.cmd.TablineBufferNext, opts)
 
+-- Lazy Git
+keymap("n", "<leader>lg", vim.cmd.LazyGit, opts)
+
 -- Aerial Outline
 keymap('n', '<leader>o', '<cmd>AerialToggle!<CR>')
 
