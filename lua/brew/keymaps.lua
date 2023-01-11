@@ -70,3 +70,9 @@ vim.keymap.set('n', '<leader>da', function()
     vim.diagnostic.hide()
   end
 end)
+
+-- Using substitute keymap
+keymap("n", "s", "<cmd>lua require('substitute').operator()<cr>", { noremap = true })
+keymap("n", "ss", "<cmd>lua require('substitute').line()<cr>", { noremap = true })
+keymap("n", "S", "<cmd>lua require('substitute').eol()<cr>", { noremap = true })
+keymap("x", "s", "<cmd>lua require('substitute').visual()<cr>", { noremap = true })

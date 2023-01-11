@@ -54,6 +54,8 @@ return require('packer').startup(function(use)
   use('mg979/vim-visual-multi') -- auto run, no need to setup
   use('stevearc/aerial.nvim')
   use('norcalli/nvim-colorizer.lua')
+  use('gbprod/substitute.nvim')
+  use{'akinsho/toggleterm.nvim', tag='*'}
 
   -- Chat GPT
   use({
