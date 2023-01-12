@@ -53,18 +53,20 @@ return require('packer').startup(function(use)
   }
   use('mg979/vim-visual-multi') -- auto run, no need to setup
   use('stevearc/aerial.nvim')
+  use('stevearc/stickybuf.nvim')
   use('norcalli/nvim-colorizer.lua')
   use('gbprod/substitute.nvim')
   use{'akinsho/toggleterm.nvim', tag='*'}
+  use('dstein64/vim-startuptime')
 
   -- Chat GPT
-  use({
-    "jackMort/ChatGPT.nvim",
-      requires = {
-	"MunifTanjim/nui.nvim",
-	"nvim-lua/plenary.nvim",
-      }
-  })
+ --  use({
+ --    "jackMort/ChatGPT.nvim",
+ --      requires = {
+	-- "MunifTanjim/nui.nvim",
+	-- "nvim-lua/plenary.nvim",
+ --      }
+ --  })
 
   -- startup
   use ("lewis6991/impatient.nvim") -- https://github.com/lewis6991/impatient.nvim
