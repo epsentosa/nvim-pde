@@ -52,12 +52,14 @@ return require('packer').startup(function(use)
     config = function() require("nvim-surround").setup({}) end
   }
   use('mg979/vim-visual-multi') -- auto run, no need to setup
-  use('stevearc/aerial.nvim')
   use('stevearc/stickybuf.nvim')
   use('norcalli/nvim-colorizer.lua')
   use('gbprod/substitute.nvim')
   use{'akinsho/toggleterm.nvim', tag='*'}
   use('dstein64/vim-startuptime')
+
+  -- outline
+  use('simrat39/symbols-outline.nvim')
 
   -- Chat GPT
  --  use({
