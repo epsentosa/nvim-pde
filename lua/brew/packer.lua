@@ -35,8 +35,6 @@ return require('packer').startup(function(use)
 	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
-    -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
 
   use('theprimeagen/harpoon')
   use('mbbill/undotree')
@@ -123,12 +121,18 @@ return require('packer').startup(function(use)
 
   use('onsails/lspkind.nvim')
 
-  use { -- Highlight, edit, and navigate code
+  -- Highlight, edit, and navigate code
+  use {
     'nvim-treesitter/nvim-treesitter',
     run = function()
       pcall(require('nvim-treesitter.install').update { with_sync = true })
     end,
   }
+  use 'nvim-treesitter/nvim-treesitter-context'
+
+  -- go programming
+  use 'ray-x/go.nvim'
+  use 'ray-x/guihua.lua'
 
   use { -- Additional text objects via treesitter
     'nvim-treesitter/nvim-treesitter-textobjects',

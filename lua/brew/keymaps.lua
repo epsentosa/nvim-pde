@@ -40,6 +40,9 @@ keymap({"n", "v"}, "<leader>d", [["_d]])
 -- copy just only use for mac
 keymap({"n", "v"}, "<C-c>", [["+y]])
 
+-- save
+keymap("n", "<C-s>", vim.cmd.w, opts)
+
 keymap("n", "<leader>e", vim.cmd.NvimTreeToggle, opts)
 keymap("n", "<leader>t", vim.cmd.TransparentToggle, opts)
 
@@ -66,14 +69,7 @@ local telescope = require('telescope.builtin')
 
 -- See `:help telescope.builtin`
 -- vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
--- vim.keymap.set('n', '<leader>/', function()
---   -- You can pass additional configuration to telescope to change theme, layout, etc.
---   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
---     winblend = 10,
---     previewer = false,
---   })
--- end, { desc = '[/] Fuzzily search in current buffer]' })
-
+keymap('n', '<leader>/',  "<cmd>lua require'telescope.builtin'.live_grep{ search_dirs={\"%:p\"} }<cr>")
 keymap('n', '<leader>b', telescope.buffers, { desc = '[ ] Find existing buffers' })
 keymap('n', '<leader>sf', telescope.find_files, { desc = '[S]earch [F]iles' })
 keymap('n', '<leader>sh', telescope.help_tags, { desc = '[S]earch [H]elp' })

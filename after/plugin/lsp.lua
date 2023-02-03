@@ -10,14 +10,21 @@ local servers = {
   pylsp = {
     pylsp = {
       plugins = {
-        pyflakes = {enabled = false},
+        pyflakes = {enabled = true},
         -- pylint = {enabled = false},
-        autopep8 = {enabled = false},
+        autopep8 = {enabled = true},
         -- yapf = {enabled = false},
-        mccabe = {enabled = false},
+        mccabe = {enabled = true},
         pycodestyle = {enabled = false},
         -- pydocstyle = {enabled = false},
       },
+    },
+  },
+
+  gopls = {
+    gopls = {
+      analyses = { unusedparams = true },
+      staticcheck = true,
     },
   },
 
