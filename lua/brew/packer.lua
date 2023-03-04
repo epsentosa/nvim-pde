@@ -37,7 +37,6 @@ return require('packer').startup(function(use)
   }
 
   use('theprimeagen/harpoon')
-  use('mbbill/undotree')
   use('nvim-lualine/lualine.nvim') -- Fancier statusline
   use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
   use('tpope/vim-sleuth') -- Detect tabstop and shiftwidth automatically
@@ -118,6 +117,7 @@ return require('packer').startup(function(use)
   }
   use('hrsh7th/cmp-buffer') -- source for text in buffer
   use('hrsh7th/cmp-path') -- source for file system paths
+  use('hrsh7th/cmp-nvim-lua') -- source for file lua nvim
 
   use('onsails/lspkind.nvim')
 
@@ -138,5 +138,14 @@ return require('packer').startup(function(use)
     'nvim-treesitter/nvim-treesitter-textobjects',
     after = 'nvim-treesitter',
   }
+
+  -- for taking notes
+  use {
+  'phaazon/mind.nvim',
+  branch = 'v2.2',
+  }
+
+  -- java development
+  use{'mfussenegger/nvim-jdtls', ft = { "java" }}
 
 end)

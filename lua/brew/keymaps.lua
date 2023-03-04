@@ -57,6 +57,8 @@ keymap("n", "<leader>lg", vim.cmd.LazyGit, opts)
 -- Outline
 keymap('n', '<leader>o', '<cmd>SymbolsOutline<CR>')
 
+-- Mind Notes
+keymap('n', '<leader>n', '<cmd>MindOpenMain<CR>')
 
 -- Using substitute keymap
 keymap("n", "s", "<cmd>lua require('substitute').operator()<cr>", { noremap = true })
@@ -66,10 +68,20 @@ keymap("x", "s", "<cmd>lua require('substitute').visual()<cr>", { noremap = true
 
 -- Telescope
 local telescope = require('telescope.builtin')
-
 -- See `:help telescope.builtin`
--- vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
+
+-- MASIH GABISA
+-- keymap('n', '<leader>/', function()
+--   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+--     winblend = 10,
+--     previewer = false,
+--   })
+-- end, { desc = '[/] Fuzzily search in current buffer' })
+
+-- ALTERNATIF
 keymap('n', '<leader>/',  "<cmd>lua require'telescope.builtin'.live_grep{ search_dirs={\"%:p\"} }<cr>")
+
+keymap('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 keymap('n', '<leader>b', telescope.buffers, { desc = '[ ] Find existing buffers' })
 keymap('n', '<leader>sf', telescope.find_files, { desc = '[S]earch [F]iles' })
 keymap('n', '<leader>sh', telescope.help_tags, { desc = '[S]earch [H]elp' })

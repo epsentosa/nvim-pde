@@ -2,11 +2,6 @@ require('brew.keymaps')
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
-  -- clangd = {},
-  -- rust_analyzer = {},
-  -- tsserver = {},
-  -- gopls = {},
-
   pylsp = {
     pylsp = {
       plugins = {
@@ -20,20 +15,19 @@ local servers = {
       },
     },
   },
-
   gopls = {
     gopls = {
       analyses = { unusedparams = true },
       staticcheck = true,
     },
   },
-
-  sumneko_lua = {
+  lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
       telemetry = { enable = false },
     },
   },
+  jdtls = {},
 }
 
 -- Setup neovim lua configuration
