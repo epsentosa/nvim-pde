@@ -5,12 +5,12 @@ local servers = {
   pylsp = {
     pylsp = {
       plugins = {
-        pyflakes = {enabled = true},
+        pyflakes = { enabled = true },
         -- pylint = {enabled = false},
-        autopep8 = {enabled = true},
+        autopep8 = { enabled = true },
         -- yapf = {enabled = false},
-        mccabe = {enabled = true},
-        pycodestyle = {enabled = false},
+        mccabe = { enabled = true },
+        pycodestyle = { enabled = false },
         -- pydocstyle = {enabled = false},
       },
     },
@@ -55,12 +55,12 @@ mason_lspconfig.setup_handlers {
       settings = servers[server_name],
       handlers = {
         ["textDocument/publishDiagnostics"] = vim.lsp.with(
-        vim.lsp.diagnostic.on_publish_diagnostics, {
-          underline = false,
-          virtual_text = false,
-          signs = true,
-          update_in_insert = true,
-        }
+          vim.lsp.diagnostic.on_publish_diagnostics, {
+            underline = false,
+            virtual_text = false,
+            signs = true,
+            update_in_insert = true,
+          }
         ),
       }
     }
@@ -72,10 +72,10 @@ require('fidget').setup()
 
 -- Change Sign Symbol
 local function lspSymbol(name, icon)
-vim.fn.sign_define(
-	'DiagnosticSign' .. name,
-	{ text = icon, numhl = 'DiagnosticDefault' .. name }
-)
+  vim.fn.sign_define(
+    'DiagnosticSign' .. name,
+    { text = icon, numhl = 'DiagnosticDefault' .. name }
+  )
 end
 lspSymbol('Error', '')
 lspSymbol('Info', '')
