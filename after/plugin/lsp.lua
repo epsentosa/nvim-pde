@@ -11,7 +11,11 @@ local servers = {
         -- yapf = {enabled = false},
         mccabe = { enabled = true },
         pycodestyle = { enabled = false },
-        -- pydocstyle = {enabled = false},
+        -- rope_completion = { enabled = true },
+        -- rope_autoimport = {
+        --   enabled = true,
+        --   memory = true,
+        -- },
       },
     },
   },

@@ -38,7 +38,6 @@ return require('packer').startup(function(use)
   use('theprimeagen/harpoon')
   use('nvim-lualine/lualine.nvim') -- Fancier statusline
   use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
-  use('tpope/vim-sleuth') -- Detect tabstop and shiftwidth automatically
   use('lukas-reineke/indent-blankline.nvim') -- Add indentation guides even on blank lines
   use('lewis6991/gitsigns.nvim')
   use('windwp/nvim-autopairs')
@@ -47,31 +46,18 @@ return require('packer').startup(function(use)
     "kylechui/nvim-surround",
     config = function() require("nvim-surround").setup({}) end
   }
-  use('mg979/vim-visual-multi') -- auto run, no need to setup
   use('stevearc/stickybuf.nvim')
   use('norcalli/nvim-colorizer.lua')
-  use('gbprod/substitute.nvim')
   use {'akinsho/toggleterm.nvim', tag = '*'}
-  use('dstein64/vim-startuptime')
 
   -- outline
   use('simrat39/symbols-outline.nvim')
-
-  -- Chat GPT
-  --  use({
-  --    "jackMort/ChatGPT.nvim",
-  --      requires = {
-  -- "MunifTanjim/nui.nvim",
-  -- "nvim-lua/plenary.nvim",
-  --      }
-  --  })
 
   -- startup
   use("lewis6991/impatient.nvim") -- https://github.com/lewis6991/impatient.nvim
 
   -- Bufferline
   -- use {'akinsho/bufferline.nvim'}
-  use 'Asheq/close-buffers.vim'
   use {
     'kdheepak/tabline.nvim',
     requires = {
@@ -79,6 +65,8 @@ return require('packer').startup(function(use)
       {'kyazdani42/nvim-web-devicons', opt = true}
     }
   }
+  -- delete buffer
+  use 'Asheq/close-buffers.vim'
 
   -- file explorer
   use("nvim-tree/nvim-tree.lua")

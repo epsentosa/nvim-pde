@@ -40,9 +40,6 @@ keymap({"n", "v"}, "<leader>d", [["_d]])
 -- copy just only use for mac
 keymap({"n", "v"}, "<C-c>", [["+y]])
 
--- save
-keymap("n", "<C-s>", vim.cmd.w, opts)
-
 keymap("n", "<leader>e", vim.cmd.NvimTreeToggle, opts)
 keymap("n", "<leader>t", vim.cmd.TransparentToggle, opts)
 
@@ -61,11 +58,11 @@ keymap('n', '<leader>o', '<cmd>SymbolsOutline<CR>')
 keymap('n', '<leader>n', '<cmd>MindOpenMain<CR>')
 
 -- Using substitute keymap
-keymap("n", "s", "<cmd>lua require('substitute').operator()<cr>",
-       {noremap = true})
-keymap("n", "ss", "<cmd>lua require('substitute').line()<cr>", {noremap = true})
-keymap("n", "S", "<cmd>lua require('substitute').eol()<cr>", {noremap = true})
-keymap("x", "s", "<cmd>lua require('substitute').visual()<cr>", {noremap = true})
+-- keymap("n", "s", "<cmd>lua require('substitute').operator()<cr>",
+--        {noremap = true})
+-- keymap("n", "ss", "<cmd>lua require('substitute').line()<cr>", {noremap = true})
+-- keymap("n", "S", "<cmd>lua require('substitute').eol()<cr>", {noremap = true})
+-- keymap("x", "s", "<cmd>lua require('substitute').visual()<cr>", {noremap = true})
 
 -- Telescope
 local telescope = require('telescope.builtin')
@@ -93,6 +90,8 @@ keymap('n', '<leader>sw', telescope.grep_string,
 keymap('n', '<leader>sg', telescope.live_grep, {desc = '[S]earch by [G]rep'})
 keymap('n', '<leader>sd', telescope.diagnostics,
        {desc = '[S]earch [D]iagnostics'})
+
+keymap('n', '<leader>hh', telescope.highlights, {desc = 'highlights'})
 
 -- Diagnostic keymaps
 keymap('n', '[d', vim.diagnostic.goto_prev)
