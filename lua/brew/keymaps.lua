@@ -50,6 +50,9 @@ keymap("n", "L", vim.cmd.TablineBufferNext, opts)
 -- Lazy Git
 keymap("n", "<leader>lg", vim.cmd.LazyGit, opts)
 
+-- Lazy UI
+keymap("n", "<leader>l", vim.cmd.Lazy, opts)
+
 -- Outline
 keymap('n', '<leader>o', '<cmd>SymbolsOutline<CR>')
 

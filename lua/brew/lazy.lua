@@ -27,9 +27,9 @@ local plugins = {
   ('lewis6991/gitsigns.nvim'),
   ('windwp/nvim-autopairs'),
   ('xiyaowong/nvim-transparent'),
-  ("kylechui/nvim-surround"),
+  {"kylechui/nvim-surround"},
   ('stevearc/stickybuf.nvim'),
-  {'norcalli/nvim-colorizer.lua', lazy=false},
+  {'norcalli/nvim-colorizer.lua'},
   {'akinsho/toggleterm.nvim'},
 
   -- outline
@@ -104,8 +104,8 @@ local plugins = {
    'nvim-treesitter/nvim-treesitter-context',
 
   -- go programming
-   'ray-x/go.nvim',
-   'ray-x/guihua.lua',
+   { 'ray-x/go.nvim', ft = "go" },
+   { 'ray-x/guihua.lua', ft = "go" },
 
    { -- Additional text objects via treesitter
     'nvim-treesitter/nvim-treesitter-textobjects',
@@ -120,6 +120,14 @@ local plugins = {
 }
 
 
-local opts = {}
+local opts = {
+    default = {
+        lazy = true,
+    },
+    ui = {
+        size = { width = 0.5, height = 0.5 },
+        border = "rounded",
+    }
+}
 
 require("lazy").setup(plugins, opts)

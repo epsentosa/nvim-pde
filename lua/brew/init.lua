@@ -1,4 +1,3 @@
--- require("brew.packer")
 require("brew.lazy")
 require("brew.keymaps")
 require("brew.settings")
