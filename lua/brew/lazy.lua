@@ -14,26 +14,26 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 
 local plugins = {
-   {
+  {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.0',
     dependencies = {{'nvim-lua/plenary.nvim'}}
   },
 
-  ('theprimeagen/harpoon'),
-  ('nvim-lualine/lualine.nvim'), -- Fancier statusline
-   'numToStr/Comment.nvim', -- "gc" to comment visual regions/lines
-  ('lukas-reineke/indent-blankline.nvim'), -- Add indentation guides even on blank lines
-  ('lewis6991/gitsigns.nvim'),
-  ('windwp/nvim-autopairs'),
-  ('xiyaowong/nvim-transparent'),
-  {"kylechui/nvim-surround"},
-  ('stevearc/stickybuf.nvim'),
+  {'theprimeagen/harpoon'},
+  {'nvim-lualine/lualine.nvim'}, -- Fancier statusline
+  {'numToStr/Comment.nvim'}, -- 'gc' to comment visual regions/lines
+  {'lukas-reineke/indent-blankline.nvim'}, -- Add indentation guides even on blank lines
+  {'lewis6991/gitsigns.nvim'},
+  {'windwp/nvim-autopairs'},
+  {'xiyaowong/nvim-transparent'},
+  {'kylechui/nvim-surround'},
+  {'stevearc/stickybuf.nvim'},
   {'norcalli/nvim-colorizer.lua'},
   {'akinsho/toggleterm.nvim'},
 
   -- outline
-  ('simrat39/symbols-outline.nvim'),
+  {'simrat39/symbols-outline.nvim'},
 
   -- Bufferline
   --  {'akinsho/bufferline.nvim'}
@@ -48,18 +48,18 @@ local plugins = {
    'Asheq/close-buffers.vim',
 
   -- file explorer
-  ("nvim-tree/nvim-tree.lua"),
+  {'nvim-tree/nvim-tree.lua'},
 
   -- vs-code like icons
-  ("nvim-tree/nvim-web-devicons"),
+  {'nvim-tree/nvim-web-devicons'},
 
   -- theme
-  ('folke/tokyonight.nvim'),
-  ('catppuccin/nvim'),
-  ('Mofiqul/dracula.nvim'),
-  ('navarasu/onedark.nvim'),
-  ('tanvirtin/monokai.nvim'),
-  ('patstockwell/vim-monokai-tasty'),
+  {'folke/tokyonight.nvim'},
+  {'catppuccin/nvim'},
+  {'Mofiqul/dracula.nvim'},
+  {'navarasu/onedark.nvim'},
+  {'tanvirtin/monokai.nvim'},
+  {'patstockwell/vim-monokai-tasty'},
 
   -- lazygit
    'kdheepak/lazygit.nvim',
@@ -85,17 +85,17 @@ local plugins = {
       'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip'
     }
   },
-  ('hrsh7th/cmp-buffer'), -- source for text in buffer
-  ('hrsh7th/cmp-path'), -- source for file system paths
-  ('hrsh7th/cmp-nvim-lua'), -- source for file lua nvim
+  {'hrsh7th/cmp-buffer'}, -- source for text in buffer
+  {'hrsh7th/cmp-path'}, -- source for file system paths
+  {'hrsh7th/cmp-nvim-lua'}, -- source for file lua nvim
 
-  ('onsails/lspkind.nvim'),
+  {'onsails/lspkind.nvim'},
 
   -- Formatter
-  ('jose-elias-alvarez/null-ls.nvim'),
+  {'jose-elias-alvarez/null-ls.nvim'},
 
   -- Highlight, edit, and navigate code
-   {
+  {
     'nvim-treesitter/nvim-treesitter',
     build = function()
       pcall(require('nvim-treesitter.install').update {with_sync = true})
@@ -104,19 +104,21 @@ local plugins = {
    'nvim-treesitter/nvim-treesitter-context',
 
   -- go programming
-   { 'ray-x/go.nvim', ft = "go" },
-   { 'ray-x/guihua.lua', ft = "go" },
+  { 'ray-x/go.nvim', ft = 'go' },
+  { 'ray-x/guihua.lua', ft = 'go' },
 
-   { -- Additional text objects via treesitter
+  { -- Additional text objects via treesitter
     'nvim-treesitter/nvim-treesitter-textobjects',
     dependencies = 'nvim-treesitter'
   },
 
   -- for taking notes
-   {'phaazon/mind.nvim', branch = 'v2.2'},
+  {'phaazon/mind.nvim', branch = 'v2.2'},
 
   -- java development
-   {'mfussenegger/nvim-jdtls', ft = {"java"}},
+  {
+   'mfussenegger/nvim-jdtls', ft = {'java'},
+  },
 }
 
 
