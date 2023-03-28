@@ -33,6 +33,9 @@ keymap("n", "<C-b>", "<C-b>zz")
 keymap("n", "n", "nzzzv")
 keymap("n", "N", "Nzzzv")
 
+-- Find and Replace current word under cursor
+keymap("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], {silent = false})
+
 -- delete to void
 keymap({"n", "v"}, "<leader>d", [["_d]])
 
@@ -133,7 +136,7 @@ on_attach = function(_, bufnr)
 
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-  nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+  nmap('gK', vim.lsp.buf.signature_help, 'Signature Documentation')
 
   -- Lesser used LSP functionality
   nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
