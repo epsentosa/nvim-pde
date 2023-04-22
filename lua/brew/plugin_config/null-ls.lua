@@ -13,8 +13,8 @@ local sources = {
       "--chop-down-table"
     }
   }),
-  formatting.prettier.with({extra_filetypes = {"toml"}}),
+  formatting.prettier.with({ extra_filetypes = { "toml" } }),
   formatting.black
 }
 
-null_ls.setup({sources = sources})
+null_ls.setup({ sources = sources })

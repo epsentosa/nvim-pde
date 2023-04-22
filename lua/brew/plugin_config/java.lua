@@ -18,16 +18,13 @@ local config = {
     '-configuration', '/usr/local/Cellar/jdtls/1.20.0/libexec/config_mac/',
     '-data', vim.fn.expand('~/.cache/jdtls-workspace') .. workspace_dir
   },
-
-  root_dir = require('jdtls.setup').find_root({'.git', 'mvnw', 'gradlew'}),
+  root_dir = require('jdtls.setup').find_root({ '.git', 'mvnw', 'gradlew' }),
   single_file_support = true,
   capabilities = capabilities,
-
   settings = {
     java = {
     }
   },
-
   init_options = {
     bundles = {}
   },
@@ -41,7 +38,7 @@ local nmap = function(keys, func, desc)
     desc = 'LSP: ' .. desc
   end
 
-  vim.keymap.set('n', keys, func, {desc = desc })
+  vim.keymap.set('n', keys, func, { desc = desc })
 end
 
 nmap('<leader>r', vim.lsp.buf.rename, '[R]e[n]ame')

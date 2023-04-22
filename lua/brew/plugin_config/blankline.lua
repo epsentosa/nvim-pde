@@ -10,11 +10,11 @@ vim.opt.listchars:append "space:⋅"
 require('indent_blankline').setup {
   char = '┊',
   show_trailing_blankline_indent = false,
-    space_char_blankline = " ",
-    char_highlight_list = {
-        "IndentBlanklineIndent",
-    },
-    space_char_highlight_list = {
-        "IndentBlanklineIndent",
-    },
+  space_char_blankline = " ",
+  char_highlight_list = {
+    "IndentBlanklineIndent",
+  },
+  space_char_highlight_list = {
+    "IndentBlanklineIndent",
+  },
 }

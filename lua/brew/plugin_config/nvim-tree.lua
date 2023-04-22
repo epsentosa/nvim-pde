@@ -8,8 +8,8 @@ end
 nvimtree.setup({
   hijack_netrw = false,
   view = {
-      adaptive_size = true,
-      width = 20,
+    adaptive_size = true,
+    width = 20,
   },
   update_focused_file = {
     enable = true,

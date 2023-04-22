@@ -39,7 +39,7 @@ vim.opt.clipboard = ""
 vim.opt.lazyredraw = true
 
 vim.opt.mouse = "a" -- allow the mouse to be used in neovim
-vim.opt.ttimeoutlen=100
+vim.opt.ttimeoutlen = 100
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menu,menuone,noselect'

@@ -1,7 +1,7 @@
 -- Shorten function name
 local keymap = vim.keymap.set
 -- Silent keymap option
-local opts = {silent = true}
+local opts = { silent = true }
 
 -- Insert --
 -- Press jk fast to enter
@@ -34,13 +34,13 @@ keymap("n", "n", "nzzzv")
 keymap("n", "N", "Nzzzv")
 
 -- Find and Replace current word under cursor
-keymap("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], {silent = false})
+keymap("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { silent = false })
 
 -- delete to void
-keymap({"n", "v"}, "<leader>d", [["_d]])
+keymap({ "n", "v" }, "<leader>d", [["_d]])
 
 -- copy just only use for mac
-keymap({"n", "v"}, "<C-c>", [["+y]])
+keymap({ "n", "v" }, "<C-c>", [["+y]])
 
 keymap("n", "<leader>e", vim.cmd.NvimTreeToggle, opts)
 keymap("n", "<leader>t", vim.cmd.TransparentToggle, opts)
@@ -83,20 +83,20 @@ local telescope = require('telescope.builtin')
 
 -- ALTERNATIF
 keymap('n', '<leader>/',
-       "<cmd>lua require'telescope.builtin'.live_grep{ search_dirs={\"%:p\"} }<cr>")
+  "<cmd>lua require'telescope.builtin'.live_grep{ search_dirs={\"%:p\"} }<cr>")
 
 keymap('n', '<leader>?', require('telescope.builtin').oldfiles,
-       {desc = '[?] Find recently opened files'})
-keymap('n', '<leader>b', telescope.buffers, {desc = '[ ] Find existing buffers'})
-keymap('n', '<leader>sf', telescope.find_files, {desc = '[S]earch [F]iles'})
-keymap('n', '<leader>sh', telescope.help_tags, {desc = '[S]earch [H]elp'})
+  { desc = '[?] Find recently opened files' })
+keymap('n', '<leader>b', telescope.buffers, { desc = '[ ] Find existing buffers' })
+keymap('n', '<leader>sf', telescope.find_files, { desc = '[S]earch [F]iles' })
+keymap('n', '<leader>sh', telescope.help_tags, { desc = '[S]earch [H]elp' })
 keymap('n', '<leader>sw', telescope.grep_string,
-       {desc = '[S]earch current [W]ord'})
-keymap('n', '<leader>sg', telescope.live_grep, {desc = '[S]earch by [G]rep'})
+  { desc = '[S]earch current [W]ord' })
+keymap('n', '<leader>sg', telescope.live_grep, { desc = '[S]earch by [G]rep' })
 keymap('n', '<leader>sd', telescope.diagnostics,
-       {desc = '[S]earch [D]iagnostics'})
+  { desc = '[S]earch [D]iagnostics' })
 
-keymap('n', '<leader>hh', telescope.highlights, {desc = 'highlights'})
+keymap('n', '<leader>hh', telescope.highlights, { desc = 'highlights' })
 
 -- Diagnostic keymaps
 keymap('n', '[d', vim.diagnostic.goto_prev)
@@ -123,7 +123,7 @@ on_attach = function(_, bufnr)
   local nmap = function(keys, func, desc)
     if desc then desc = 'LSP: ' .. desc end
 
-    vim.keymap.set('n', keys, func, {buffer = bufnr, desc = desc})
+    vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
 
   nmap('<leader>r', vim.lsp.buf.rename, '[R]e[n]ame')
@@ -135,7 +135,7 @@ on_attach = function(_, bufnr)
   nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
   nmap('<leader>ds', telescope.lsp_document_symbols, '[D]ocument [S]ymbols')
   nmap('<leader>ws', telescope.lsp_dynamic_workspace_symbols,
-       '[W]orkspace [S]ymbols')
+    '[W]orkspace [S]ymbols')
 
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
@@ -144,15 +144,15 @@ on_attach = function(_, bufnr)
   -- Lesser used LSP functionality
   nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
   nmap('<leader>wa', vim.lsp.buf.add_workspace_folder,
-       '[W]orkspace [A]dd Folder')
+    '[W]orkspace [A]dd Folder')
   nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder,
-       '[W]orkspace [R]emove Folder')
+    '[W]orkspace [R]emove Folder')
   nmap('<leader>wl',
-       function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end,
-       '[W]orkspace [L]ist Folders')
+    function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end,
+    '[W]orkspace [L]ist Folders')
 
   -- Create a command `:Format` local to the LSP buffer
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-    vim.lsp.buf.format({timeout_ms = 10000})
-  end, {desc = 'Format current buffer with LSP'})
+    vim.lsp.buf.format({ timeout_ms = 10000 })
+  end, { desc = 'Format current buffer with LSP' })
 end
