@@ -2,7 +2,7 @@ vim.opt.guicursor = ""
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
--- vim.g.python3_host_prog = "$HOME/.venvs/vim/bin/python"
+vim.g.python3_host_prog = "/Library/Frameworks/Python.framework/Versions/3.8/bin/python3"
 
 vim.opt.nu = true
 vim.opt.relativenumber = true

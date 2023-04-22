@@ -104,6 +104,9 @@ keymap('n', ']d', vim.diagnostic.goto_next)
 keymap('n', '<leader>df', vim.diagnostic.open_float)
 keymap('n', '<leader>q', vim.diagnostic.setloclist)
 
+-- Telescope File Browser
+keymap('n', '<leader>fb', '<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>', opts)
+
 -- Toggle diagnostic
 local diagnostics_active = true
 vim.keymap.set('n', '<leader>da', function()

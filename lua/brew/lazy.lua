@@ -49,6 +49,10 @@ local plugins = {
 
   -- file explorer
   {'nvim-tree/nvim-tree.lua'},
+  {
+    "nvim-telescope/telescope-file-browser.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+  },
 
   -- vs-code like icons
   {'nvim-tree/nvim-web-devicons'},
@@ -63,6 +67,14 @@ local plugins = {
 
   -- lazygit
    'kdheepak/lazygit.nvim',
+
+  -- git brach viewer
+   {
+       'rbong/vim-flog',
+       dependencies = {
+           'tpope/vim-fugitive',
+       },
+   },
 
   -- LSP
    { -- LSP Configuration & Plugins
@@ -107,6 +119,11 @@ local plugins = {
   { 'ray-x/go.nvim', ft = 'go' },
   { 'ray-x/guihua.lua', ft = 'go' },
 
+  -- java development
+  {
+      'mfussenegger/nvim-jdtls', ft = {'java'},
+  },
+
   { -- Additional text objects via treesitter
     'nvim-treesitter/nvim-treesitter-textobjects',
     dependencies = 'nvim-treesitter'
@@ -115,10 +132,6 @@ local plugins = {
   -- for taking notes
   {'phaazon/mind.nvim', branch = 'v2.2'},
 
-  -- java development
-  {
-   'mfussenegger/nvim-jdtls', ft = {'java'},
-  },
 }
 
 

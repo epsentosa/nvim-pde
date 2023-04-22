@@ -19,7 +19,7 @@ cmp.setup {
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete {}, -- on mac, keyboard wont work on ABC
     ['<CR>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
+      behavior = cmp.ConfirmBehavior.Insert,
       select = true,
     },
   },
