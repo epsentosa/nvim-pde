@@ -53,25 +53,35 @@ mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
 }
 
+local handlers = {
+  ["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics, {
+      underline = false,
+      virtual_text = false,
+      signs = true,
+      update_in_insert = true,
+    }
+  ),
+}
+
 mason_lspconfig.setup_handlers {
   function(server_name)
     require('lspconfig')[server_name].setup {
       capabilities = capabilities,
       on_attach = on_attach,
       settings = servers[server_name],
-      handlers = {
-        ["textDocument/publishDiagnostics"] = vim.lsp.with(
-          vim.lsp.diagnostic.on_publish_diagnostics, {
-            underline = false,
-            virtual_text = false,
-            signs = true,
-            update_in_insert = true,
-          }
-        ),
-      }
+      handlers = handlers,
     }
   end,
 }
+
+-- Handling clangd warning: multiple different client offset_encodings detected for buffer, this is not supported yet
+capabilities.offsetEncoding = { "utf-16" }
+require('lspconfig').clangd.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  handlers = handlers,
+})
 
 -- Turn on lsp status information
 require('fidget').setup()
