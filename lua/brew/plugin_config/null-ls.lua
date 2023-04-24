@@ -14,7 +14,12 @@ local sources = {
     }
   }),
   formatting.prettier.with({ extra_filetypes = { "toml" } }),
-  formatting.black
+  formatting.black,
+  formatting.clang_format.with({
+    extra_args = {
+      "-style={IndentWidth: 4}"
+    }
+  }),
 }
 
 null_ls.setup({ sources = sources })
