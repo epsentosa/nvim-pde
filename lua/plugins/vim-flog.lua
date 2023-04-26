@@ -3,5 +3,5 @@ return {
   dependencies = {
       'tpope/vim-fugitive',
   },
-  event = 'VeryLazy',
+  cmd = 'Flog',
 }

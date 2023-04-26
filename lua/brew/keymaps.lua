@@ -53,14 +53,14 @@ keymap("n", "L", vim.cmd.TablineBufferNext, opts)
 -- Lazy Git
 keymap("n", "<leader>lg", vim.cmd.LazyGit, opts)
 
--- Lazy UI
-keymap("n", "<leader>l", vim.cmd.Lazy, opts)
-
 -- Outline
-keymap('n', '<leader>o', '<cmd>SymbolsOutline<CR>')
+keymap('n', '<leader>o', vim.cmd.SymbolsOutline, opts)
 
 -- Mind Notes
-keymap('n', '<leader>n', '<cmd>MindOpenMain<CR>')
+keymap('n', '<leader>n', vim.cmd.MindOpenMain, opts)
+
+-- Toggle Terminal
+keymap('n', '<C-\\>', vim.cmd.ToggleTerm, opts)
 
 -- Using substitute keymap
 -- keymap("n", "s", "<cmd>lua require('substitute').operator()<cr>",
