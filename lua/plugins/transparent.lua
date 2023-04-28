@@ -2,12 +2,25 @@ local config = function ()
   require("transparent").setup({
     extra_groups = { -- table/string: additional groups that should be cleared
     'NormalFloat',
+    'NormalSB', -- for window help
     'TelescopeNormal',
     'TelescopeBorder',
     'NvimTreeNormal',
     'NvimTreeNormalNC',
     'EndOfBuffer',
     'QuickFixLine',
+    'LazyNormal',
+    'NotifyTRACEBody',
+    'NotifyWARNBody',
+    'NotifyINFOBody',
+    'NotifyERRORBody',
+    'NotifyDEBUGBody',
+    'NotifyTRACEBorder',
+    'NotifyWARNBorder',
+    'NotifyINFOBorder',
+    'NotifyERRORBorder',
+    'NotifyDEBUGBorder',
+    'FloatBorder',
     -- 'TreesitterContext',
   },
   exclude_groups = {}, -- table: groups you don't want to clear
