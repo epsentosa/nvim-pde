@@ -84,9 +84,6 @@ local config = function ()
       handlers = handlers,
     })
 
-    -- Turn on lsp status information
-    require('fidget').setup()
-
     -- Change Sign Symbol
     local function lspSymbol(name, icon)
       vim.fn.sign_define(
@@ -110,9 +107,6 @@ return {
   dependencies = {
       -- Automatically install LSPs to stdpath for neovim
       'williamboman/mason.nvim', 'williamboman/mason-lspconfig.nvim',
-
-      -- Useful status updates for LSP
-      'j-hui/fidget.nvim',
 
       -- Additional lua configuration, makes nvim stuff amazing
       'folke/neodev.nvim'
