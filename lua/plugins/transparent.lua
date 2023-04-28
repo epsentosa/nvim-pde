@@ -3,6 +3,7 @@ local config = function ()
     extra_groups = { -- table/string: additional groups that should be cleared
     'NormalFloat',
     'TelescopeNormal',
+    'TelescopeBorder',
     'NvimTreeNormal',
     'NvimTreeNormalNC',
     'EndOfBuffer',
