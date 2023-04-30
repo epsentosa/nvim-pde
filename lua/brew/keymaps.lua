@@ -47,8 +47,8 @@ keymap("n", "<leader>t", vim.cmd.TransparentToggle, opts)
 
 -- buffer management
 keymap("n", "qq", '<cmd>Bdelete this<CR>', opts)
-keymap("n", "H", vim.cmd.TablineBufferPrevious, opts)
-keymap("n", "L", vim.cmd.TablineBufferNext, opts)
+keymap("n", "<leader>bb", vim.cmd.TablineBufferPrevious, opts)
+keymap("n", "<leader>bn", vim.cmd.TablineBufferNext, opts)
 
 -- Lazy Git
 keymap("n", "<leader>lg", vim.cmd.LazyGit, opts)
@@ -87,7 +87,7 @@ keymap('n', '<leader>/',
 
 keymap('n', '<leader>?', require('telescope.builtin').oldfiles,
   { desc = '[?] Find recently opened files' })
-keymap('n', '<leader>b', telescope.buffers, { desc = '[ ] Find existing buffers' })
+keymap('n', '<leader><leader>b', telescope.buffers, { desc = '[ ] Find existing buffers' })
 keymap('n', '<leader>sf', telescope.find_files, { desc = '[S]earch [F]iles' })
 keymap('n', '<leader>sh', telescope.help_tags, { desc = '[S]earch [H]elp' })
 keymap('n', '<leader>sw', telescope.grep_string,
