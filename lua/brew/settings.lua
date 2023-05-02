@@ -15,6 +15,9 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.linespace = 50
 
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+
 vim.opt.smartindent = true
 
 vim.opt.wrap = false
