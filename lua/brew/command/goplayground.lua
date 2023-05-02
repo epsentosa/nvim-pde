@@ -1,6 +1,6 @@
 local goplayground_path = "/Users/ekoputra/Documents/ekoputra/golang/go-playground/main.go"
 local set_lines = vim.api.nvim_buf_set_lines
-local cmd = vim.api.nvim_command
+local cmd = vim.cmd
 
 local attach_in_buffer = function (bufnr)
   vim.api.nvim_create_autocmd("BufWritePost", {
@@ -26,12 +26,12 @@ local attach_in_buffer = function (bufnr)
 end
 
 vim.api.nvim_create_user_command('GoPlay',function ()
-  cmd('edit' .. goplayground_path)
-  cmd('vsplit')
+  cmd.edit(goplayground_path)
+  cmd.vsplit()
   local win = vim.api.nvim_get_current_win()
   local bufnr = vim.api.nvim_create_buf(true, true)
   vim.api.nvim_win_set_buf(win, bufnr)
-  cmd('wincmd h')
+  cmd.wincmd('h')
   attach_in_buffer(bufnr)
-  cmd('write')
+  cmd.write()
 end, {})
