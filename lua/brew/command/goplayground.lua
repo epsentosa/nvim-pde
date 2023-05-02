@@ -1,11 +1,11 @@
-local path_file = "/Users/ekoputra/Documents/ekoputra/golang/go-playground/main.go"
+local goplayground_path = "/Users/ekoputra/Documents/ekoputra/golang/go-playground/main.go"
 local set_lines = vim.api.nvim_buf_set_lines
 local cmd = vim.api.nvim_command
 
 local attach_in_buffer = function (bufnr)
   vim.api.nvim_create_autocmd("BufWritePost", {
     group = vim.api.nvim_create_augroup("GoPlayground", { clear = true }),
-    pattern = path_file,
+    pattern = goplayground_path,
     callback = function ()
       local append_data = function (_, data)
         if data then
@@ -15,7 +15,7 @@ local attach_in_buffer = function (bufnr)
       end
       set_lines(bufnr, 0, -1, false, {'Go-Playground output:'})
       set_lines(bufnr, -1, -1, false, {' '})
-      vim.fn.jobstart({ "go", "run", path_file}, {
+      vim.fn.jobstart({ "go", "run", goplayground_path}, {
         stdout_buffered = true,
         on_stdout = append_data,
         on_stderr = append_data,
@@ -26,7 +26,7 @@ local attach_in_buffer = function (bufnr)
 end
 
 vim.api.nvim_create_user_command('GoPlay',function ()
-  cmd('edit' .. path_file)
+  cmd('edit' .. goplayground_path)
   cmd('vsplit')
   local win = vim.api.nvim_get_current_win()
   local bufnr = vim.api.nvim_create_buf(true, true)
