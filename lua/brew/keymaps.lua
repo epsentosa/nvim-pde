@@ -62,6 +62,14 @@ keymap('n', '<leader>n', vim.cmd.MindOpenMain, opts)
 -- Toggle Terminal
 keymap('n', '<C-\\>', vim.cmd.ToggleTerm, opts)
 
+-- Toggle TreesitterContext
+keymap('n', '<leader>ct', vim.cmd.TSContextToggle, opts)
+
+harpoon = function ()
+  keymap("n", "<leader>a", require("harpoon.mark").add_file)
+  keymap("n", "<C-e>", require("harpoon.ui").toggle_quick_menu)
+end
+
 -- Using substitute keymap
 -- keymap("n", "s", "<cmd>lua require('substitute').operator()<cr>",
 --        {noremap = true})
