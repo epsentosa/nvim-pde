@@ -10,11 +10,10 @@ local config = function ()
       }
     end
   })
-
-  vim.cmd.colorscheme("tokyonight")
 end
 
 return {
   'folke/tokyonight.nvim',
   config = config,
+  lazy = true,
 }

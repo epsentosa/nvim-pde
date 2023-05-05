@@ -13,7 +13,6 @@ local colors = {
 
 local config = function ()
   local lualine_config = {
-    options = { theme = "tokyonight" },
     sections = {
       lualine_x = { 'encoding', 'filetype' },
       lualine_c = {},
