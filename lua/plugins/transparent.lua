@@ -25,6 +25,7 @@ local config = function ()
     'GitSignsChange',
     'GitSignsDelete',
     'Pmenu',
+    'TelescopePromptNormal',
     -- 'TreesitterContext',
   },
   exclude_groups = {}, -- table: groups you don't want to clear
