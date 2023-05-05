@@ -21,6 +21,10 @@ local config = function ()
     'NotifyERRORBorder',
     'NotifyDEBUGBorder',
     'FloatBorder',
+    'GitSignsAdd',
+    'GitSignsChange',
+    'GitSignsDelete',
+    'Pmenu',
     -- 'TreesitterContext',
   },
   exclude_groups = {}, -- table: groups you don't want to clear
