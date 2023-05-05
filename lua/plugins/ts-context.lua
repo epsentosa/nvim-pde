@@ -95,5 +95,5 @@ end
 return {
   'nvim-treesitter/nvim-treesitter-context',
   config = config,
-  cmd = 'TSContextToggle',
+  cmd = { 'TSContextToggle', 'TSContextEnable' },
 }
