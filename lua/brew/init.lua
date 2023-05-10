@@ -5,4 +5,4 @@ require("brew.event")
 require("brew.command")
 
 -- set colorscheme
-vim.cmd.colorscheme("rose-pine")
+vim.cmd.colorscheme("kanagawa")
