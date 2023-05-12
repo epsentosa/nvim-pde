@@ -7,6 +7,7 @@ local config = function ()
     'TelescopeBorder',
     'NvimTreeNormal',
     'NvimTreeNormalNC',
+    'NvimTreeEndOfBuffer',
     'EndOfBuffer',
     'QuickFixLine',
     'LazyNormal',
