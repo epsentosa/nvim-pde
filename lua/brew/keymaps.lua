@@ -14,10 +14,10 @@ keymap("v", ">", ">gv", opts)
 
 -- Normal --
 -- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+-- keymap("n", "<C-h>", "<C-w>h", opts)
+-- keymap("n", "<C-j>", "<C-w>j", opts)
+-- keymap("n", "<C-k>", "<C-w>k", opts)
+-- keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Better paste
 keymap("v", "p", '"_dP', opts)
@@ -85,7 +85,7 @@ hop_keymap = function ()
   keymap('', 'T', function()
     hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })
   end, {remap=true})
-  keymap('n', 'H', vim.cmd.HopWord )
+  keymap('n', '<C-h>', vim.cmd.HopWord )
 end
 
 -- Using substitute keymap
@@ -165,7 +165,7 @@ on_attach = function(_, bufnr)
 
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-  nmap('gK', vim.lsp.buf.signature_help, 'Signature Documentation')
+  nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
   -- Lesser used LSP functionality
   nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
