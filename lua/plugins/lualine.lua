@@ -13,6 +13,10 @@ local colors = {
 
 local config = function ()
   local lualine_config = {
+    options = {
+      component_separators = { left = ' ▏', right = ' ▏'},
+      section_separators = { left = '', right = ''},
+    },
     sections = {
       lualine_x = { 'encoding', 'filetype' },
       lualine_c = {},
