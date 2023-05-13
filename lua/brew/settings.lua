@@ -36,7 +36,7 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
-vim.opt.cursorline = true -- highlight the current line
+-- vim.opt.cursorline = true -- highlight the current line
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
