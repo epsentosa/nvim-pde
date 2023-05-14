@@ -163,6 +163,9 @@ on_attach = function(_, bufnr)
   nmap('<leader>ws', telescope.lsp_dynamic_workspace_symbols,
     '[W]orkspace [S]ymbols')
 
+  nmap('gp', "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", '[G]oto [P]review')
+  nmap('gP', "<cmd>lua require('goto-preview').close_all_win()<CR>", 'Clear Preview')
+
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
   nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
