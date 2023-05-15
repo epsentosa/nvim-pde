@@ -5,10 +5,7 @@ local config = function ()
     'NormalSB', -- for window help
     'TelescopeNormal',
     'TelescopeBorder',
-    'NvimTreeNormal',
-    'NvimTreeNormalNC',
-    'NvimTreeVertSplit',
-    'NvimTreeEndOfBuffer',
+    'TelescopePromptNormal',
     'EndOfBuffer',
     'QuickFixLine',
     'LazyNormal',
@@ -27,7 +24,10 @@ local config = function ()
     'GitSignsChange',
     'GitSignsDelete',
     'Pmenu',
-    'TelescopePromptNormal',
+    'NvimTreeNormal',
+    'NvimTreeNormalNC',
+    'NvimTreeVertSplit',
+    'NvimTreeEndOfBuffer',
     -- 'TreesitterContext',
   },
   exclude_groups = {}, -- table: groups you don't want to clear
