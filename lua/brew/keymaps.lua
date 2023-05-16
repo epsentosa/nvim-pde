@@ -47,8 +47,8 @@ keymap("n", "<leader>t", vim.cmd.TransparentToggle, opts)
 
 -- buffer management
 keymap("n", "qq", '<cmd>Bdelete this<CR>', opts)
-keymap("n", "<leader>bb", vim.cmd.TablineBufferPrevious, opts)
-keymap("n", "<leader>bn", vim.cmd.TablineBufferNext, opts)
+-- keymap("n", "<leader>bb", vim.cmd.TablineBufferPrevious, opts)
+-- keymap("n", "<leader>bn", vim.cmd.TablineBufferNext, opts)
 
 -- Lazy Git
 keymap("n", "<leader>lg", vim.cmd.LazyGit, opts)
@@ -145,43 +145,29 @@ vim.keymap.set('n', '<leader>da', function()
 end)
 
 --  LSP
-on_attach = function(_, bufnr)
-  local nmap = function(keys, func, desc)
-    if desc then desc = 'LSP: ' .. desc end
-
-    vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
-  end
-
-  nmap('<leader>r', vim.lsp.buf.rename, '[R]e[n]ame')
-  nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-
-  nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
-  nmap('gr', telescope.lsp_references, '[G]oto [R]eferences')
-  nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
-  nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
-  nmap('<leader>ds', telescope.lsp_document_symbols, '[D]ocument [S]ymbols')
-  nmap('<leader>ws', telescope.lsp_dynamic_workspace_symbols,
-    '[W]orkspace [S]ymbols')
-
-  nmap('gp', "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", '[G]oto [P]review')
-  nmap('gP', "<cmd>lua require('goto-preview').close_all_win()<CR>", 'Clear Preview')
-
+-- params as --> {keys, func, desc}
+lsp_mappings = {
+  {'<leader>r', vim.lsp.buf.rename, '[R]e[n]ame'},
+  {'<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction'},
+  {'gd', vim.lsp.buf.definition, '[G]oto [D]efinition'},
+  {'gr', telescope.lsp_references, '[G]oto [R]eferences'},
+  {'gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation'},
+  {'<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition'},
+  {'<leader>ds', telescope.lsp_document_symbols, '[D]ocument [S]ymbols'},
+  {'<leader>ws', telescope.lsp_dynamic_workspace_symbols,
+  '[W]orkspace [S]ymbols'},
+  {'gp', "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", '[G]oto [P]review'},
+  {'gP', "<cmd>lua require('goto-preview').close_all_win()<CR>", 'Clear Preview'},
   -- See `:help K` for why this keymap
-  nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-  nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
-
+  {'K', vim.lsp.buf.hover, 'Hover Documentation'},
+  {'<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation'},
   -- Lesser used LSP functionality
-  nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-  nmap('<leader>wa', vim.lsp.buf.add_workspace_folder,
-    '[W]orkspace [A]dd Folder')
-  nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder,
-    '[W]orkspace [R]emove Folder')
-  nmap('<leader>wl',
-    function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end,
-    '[W]orkspace [L]ist Folders')
-
-  -- Create a command `:Format` local to the LSP buffer
-  vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-    vim.lsp.buf.format({ timeout_ms = 10000 })
-  end, { desc = 'Format current buffer with LSP' })
-end
+  {'gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration'},
+  {'<leader>wa', vim.lsp.buf.add_workspace_folder,
+  '[W]orkspace [A]dd Folder'},
+  {'<leader>wr', vim.lsp.buf.remove_workspace_folder,
+  '[W]orkspace [R]emove Folder'},
+  {'<leader>wl',
+  function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end,
+  '[W]orkspace [L]ist Folders'},
+}
