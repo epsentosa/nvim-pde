@@ -8,6 +8,14 @@ local config = function ()
   require("luasnip/loaders/from_vscode").lazy_load()
 
   cmp.setup {
+    window = {
+        documentation = {
+            border = 'rounded'
+        },
+        completion = {
+            border = 'rounded'
+        },
+    },
     snippet = {
       expand = function(args)
         luasnip.lsp_expand(args.body)
