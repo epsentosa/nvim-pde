@@ -113,7 +113,7 @@ keymap('n', '<leader>/',
 
 keymap('n', '<leader>?', require('telescope.builtin').oldfiles,
   { desc = '[?] Find recently opened files' })
-keymap('n', '<C-Space>', telescope.buffers, { desc = '[ ] Find existing buffers' })
+keymap('n', '<leader><leader>', telescope.buffers, { desc = '[ ] Find existing buffers' })
 keymap('n', '<leader>sf', telescope.find_files, { desc = '[S]earch [F]iles' })
 keymap('n', '<leader>sh', telescope.help_tags, { desc = '[S]earch [H]elp' })
 keymap('n', '<leader>sw', telescope.grep_string,
