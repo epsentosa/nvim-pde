@@ -1,5 +1,4 @@
 local config = function ()
-  require('brew.keymaps')
   --  Add any additional override configuration in the following tables. They will be passed to
   --  the `settings` field of the server config. You must look up that documentation yourself.
   local servers = {
@@ -64,6 +63,29 @@ local config = function ()
       }
       ),
     }
+
+  local navic = require("nvim-navic")
+
+  local on_attach = function(client, bufnr)
+    if client.server_capabilities.documentSymbolProvider then
+        navic.attach(client, bufnr)
+    end
+    local nmap = function(keys, func, desc)
+      if desc then desc = 'LSP: ' .. desc end
+      vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
+    end
+
+    -- load keymap
+    require('brew.keymaps')
+    for _, params in ipairs(lsp_mappings) do
+      local keys, func, desc = unpack(params)
+      nmap(keys, func, desc)
+    end
+    -- Create a command `:Format` local to the LSP buffer
+    vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
+      vim.lsp.buf.format({ timeout_ms = 10000 })
+    end, { desc = 'Format current buffer with LSP' })
+  end
 
     mason_lspconfig.setup_handlers {
       function(server_name)
