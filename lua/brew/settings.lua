@@ -54,4 +54,4 @@ vim.opt.ttimeoutlen = 100
 vim.o.completeopt = 'menu,menuone,noselect'
 
 -- set winbar
--- vim.cmd [[set winbar=%m\ %f]]  -- Used when not using bufferline
+vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}" -- Used when not using bufferline
