@@ -1,5 +1,3 @@
-vim.opt.guicursor = "a:blinkon50"
-
 vim.notify = require('notify')
 
 vim.g.loaded_netrw = 1
