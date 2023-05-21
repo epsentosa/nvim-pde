@@ -3,6 +3,7 @@ local config = function ()
   -- See `:help telescope` and `:help telescope.setup()`
   require('telescope').setup {
     defaults = {
+      prompt_prefix = "   ",
       mappings = {
         i = {
           ['<C-u>'] = false,
