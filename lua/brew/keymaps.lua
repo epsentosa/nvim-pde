@@ -42,13 +42,10 @@ keymap({ "n", "v" }, "<leader>d", [["_d]])
 -- copy just only use for mac
 keymap({ "n", "v" }, "<C-c>", [["+y]])
 
--- keymap("n", "<leader>e", vim.cmd.NvimTreeToggle, opts)
 keymap("n", "<leader>t", vim.cmd.TransparentToggle, opts)
 
 -- buffer management
 keymap("n", "qq", '<cmd>Bdelete this<CR>', opts)
--- keymap("n", "<leader>bb", vim.cmd.TablineBufferPrevious, opts)
--- keymap("n", "<leader>bn", vim.cmd.TablineBufferNext, opts)
 
 -- Lazy Git
 keymap("n", "<leader>lg", vim.cmd.LazyGit, opts)
@@ -61,9 +58,6 @@ keymap('n', '<leader>n', vim.cmd.MindOpenMain, opts)
 
 -- Toggle Terminal
 keymap('n', '<C-\\>', vim.cmd.ToggleTerm, opts)
-
--- Toggle TreesitterContext
-keymap('n', '<leader>ct', vim.cmd.TSContextToggle, opts)
 
 harpoon = function ()
   keymap("n", "<leader>a", require("harpoon.mark").add_file)
@@ -87,13 +81,6 @@ hop_keymap = function ()
   end, {remap=true})
   keymap('n', '<C-h>', vim.cmd.HopWord )
 end
-
--- Using substitute keymap
--- keymap("n", "s", "<cmd>lua require('substitute').operator()<cr>",
---        {noremap = true})
--- keymap("n", "ss", "<cmd>lua require('substitute').line()<cr>", {noremap = true})
--- keymap("n", "S", "<cmd>lua require('substitute').eol()<cr>", {noremap = true})
--- keymap("x", "s", "<cmd>lua require('substitute').visual()<cr>", {noremap = true})
 
 -- Telescope
 local telescope = require('telescope.builtin')
