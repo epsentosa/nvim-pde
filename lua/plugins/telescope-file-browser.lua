@@ -3,9 +3,20 @@ local config = function ()
   require('telescope').setup {
     extensions = {
       file_browser = {
-        theme = "ivy",
+        -- theme = "ivy",
+        layout_strategy = "horizontal",
+        sorting_strategy = "ascending",
+        layout_config = {
+          horizontal = {
+            prompt_position = "top",
+          },
+        },
+        grouped = true,
+        preview = { timeout = 1000},
         -- disables netrw and use telescope-file-browser in its place
         hijack_netrw = true,
+        initial_mode = "normal",
+        git_status = false,
       },
     },
   }
