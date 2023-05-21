@@ -42,7 +42,7 @@ keymap({ "n", "v" }, "<leader>d", [["_d]])
 -- copy just only use for mac
 keymap({ "n", "v" }, "<C-c>", [["+y]])
 
-keymap("n", "<leader>e", vim.cmd.NvimTreeToggle, opts)
+-- keymap("n", "<leader>e", vim.cmd.NvimTreeToggle, opts)
 keymap("n", "<leader>t", vim.cmd.TransparentToggle, opts)
 
 -- buffer management
@@ -131,7 +131,7 @@ keymap('n', '<leader>df', vim.diagnostic.open_float)
 keymap('n', '<leader>q', vim.diagnostic.setloclist)
 
 -- Telescope File Browser
-keymap('n', '<leader>fb', '<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>', opts)
+keymap('n', '<leader>fb', '<cmd>Telescope file_browser path=%:p:h select_buffer=true initial_mode=normal<CR>', opts)
 
 -- Toggle diagnostic
 local diagnostics_active = true
