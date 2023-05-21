@@ -46,4 +46,5 @@ end
 return {
   'SmiteshP/nvim-navic',
   config = config,
+  event = 'VeryLazy',
 }
