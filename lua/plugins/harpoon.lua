@@ -1,8 +1,15 @@
+local config = function ()
+  require('brew.keymaps')
+  require("harpoon").setup({
+    menu = {
+      width = vim.api.nvim_win_get_width(0) - 125,
+    }
+  })
+  harpoon()
+end
+
 return {
   'theprimeagen/harpoon',
-  config = function ()
-    require('brew.keymaps')
-    harpoon()
-  end,
+  config = config,
   keys = '<C-e>'
 }

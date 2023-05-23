@@ -62,6 +62,8 @@ keymap('n', '<C-\\>', vim.cmd.ToggleTerm, opts)
 harpoon = function ()
   keymap("n", "<leader>a", require("harpoon.mark").add_file)
   keymap("n", "<C-e>", require("harpoon.ui").toggle_quick_menu)
+  keymap("n", "H", require("harpoon.ui").nav_next)
+  keymap("n", "L", require("harpoon.ui").nav_prev)
 end
 
 hop_keymap = function ()
