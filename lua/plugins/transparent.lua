@@ -24,10 +24,6 @@ local config = function ()
     'GitSignsChange',
     'GitSignsDelete',
     'Pmenu',
-    'NvimTreeNormal',
-    'NvimTreeNormalNC',
-    'NvimTreeVertSplit',
-    'NvimTreeEndOfBuffer',
     -- 'TreesitterContext',
   },
   exclude_groups = {}, -- table: groups you don't want to clear
