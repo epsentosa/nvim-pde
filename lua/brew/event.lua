@@ -9,3 +9,6 @@ vim.api.nvim_create_autocmd("VimEnter", {
   end
   }
 )
+
+-- Reset marks each start open neovim
+vim.api.nvim_create_autocmd({ "BufRead" }, { command = ":delm a-zA-Z0-9", })
