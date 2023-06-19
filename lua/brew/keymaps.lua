@@ -88,15 +88,6 @@ end
 local telescope = require('telescope.builtin')
 -- See `:help telescope.builtin`
 
--- MASIH GABISA
--- keymap('n', '<leader>/', function()
---   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
---     winblend = 10,
---     previewer = false,
---   })
--- end, { desc = '[/] Fuzzily search in current buffer' })
-
--- ALTERNATIF
 keymap('n', '<leader>/',
   "<cmd>lua require'telescope.builtin'.live_grep{ search_dirs={\"%:p\"} }<cr>")
 
