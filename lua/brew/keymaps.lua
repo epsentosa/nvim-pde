@@ -50,9 +50,6 @@ keymap("n", "qq", '<cmd>Bdelete this<CR>', opts)
 -- Lazy Git
 keymap("n", "<leader>lg", vim.cmd.LazyGit, opts)
 
--- Outline
-keymap('n', '<leader>o', vim.cmd.SymbolsOutline, opts)
-
 -- Mind Notes
 keymap('n', '<leader>n', vim.cmd.MindOpenMain, opts)
 
