@@ -5,11 +5,6 @@ vim.g.loaded_netrwPlugin = 1
 
 local set = vim.opt
 set.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
-set.completeopt:append({
-  "menuone",
-  "noinsert",
-  "noselect",
-})
 set.relativenumber = true
 set.cmdheight = 1
 set.tabstop = 4
@@ -37,3 +32,11 @@ set.clipboard = ""
 set.lazyredraw = true
 set.mouse = ""
 set.ttimeoutlen = 100
+set.list = true
+set.listchars:append "space:⋅"
+set.listchars:append "eol:↴"
+set.completeopt:append({
+  "menuone",
+  "noinsert",
+  "noselect",
+})
