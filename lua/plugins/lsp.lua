@@ -133,7 +133,6 @@ local config = function ()
     handlers = handlers,
   })
 
-
 end
 
 return {
