@@ -2,23 +2,6 @@ local config = function ()
   --  Add any additional override configuration in the following tables. They will be passed to
   --  the `settings` field of the server config. You must look up that documentation yourself.
   local servers = {
-    pylsp = {
-      pylsp = {
-        plugins = {
-          pyflakes = { enabled = true },
-          -- pylint = {enabled = false},
-          autopep8 = { enabled = true },
-          -- yapf = {enabled = false},
-          mccabe = { enabled = true },
-          pycodestyle = { enabled = false },
-          -- rope_completion = { enabled = true },
-          -- rope_autoimport = {
-            --   enabled = true,
-            --   memory = true,
-            -- },
-          },
-        },
-      },
     gopls = {
       gopls = {
         analyses = { unusedparams = true },
@@ -45,13 +28,6 @@ local config = function ()
   require('mason').setup({
     ui = { border = "rounded" }
   })
-
-  -- Ensure the servers above are installed
-  local mason_lspconfig = require 'mason-lspconfig'
-
-  mason_lspconfig.setup {
-    ensure_installed = vim.tbl_keys(servers),
-  }
 
   local handlers = {
     ["textDocument/publishDiagnostics"] = vim.lsp.with(
@@ -92,6 +68,13 @@ local config = function ()
     end, { desc = 'Format current buffer with LSP' })
   end
 
+  -- Ensure the servers above are installed
+  local mason_lspconfig = require 'mason-lspconfig'
+
+  mason_lspconfig.setup {
+    ensure_installed = vim.tbl_keys(servers),
+  }
+
   mason_lspconfig.setup_handlers {
     function(server_name)
       require('lspconfig')[server_name].setup {
@@ -129,6 +112,32 @@ local config = function ()
   lspSymbol('Hint', '')
   lspSymbol('Info', '')
   lspSymbol('Warn', '')
+
+  -- special case not using mason due to anomali if using multiple environment
+  local lspconfig = require('lspconfig')
+  lspconfig.pylsp.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    settings = {
+      pylsp = {
+        plugins = {
+          pyflakes = { enabled = true },
+          -- pylint = {enabled = false},
+          autopep8 = { enabled = true },
+          -- yapf = {enabled = false},
+          mccabe = { enabled = true },
+          pycodestyle = { enabled = false },
+          -- rope_completion = { enabled = true },
+          -- rope_autoimport = {
+            --   enabled = true,
+            --   memory = true,
+            -- },
+          },
+        },
+      },
+    handlers = handlers,
+  }
+
 end
 
 return {
