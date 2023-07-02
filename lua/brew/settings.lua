@@ -2,11 +2,6 @@ vim.notify = require('notify')
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-vim.g['codi#interpreters'] = {
-  python = {
-    bin = { 'python3' },
-  }
-}
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
