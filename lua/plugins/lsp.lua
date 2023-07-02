@@ -62,10 +62,6 @@ local config = function ()
       local keys, func, desc = unpack(params)
       nmap(keys, func, desc)
     end
-    -- Create a command `:Format` local to the LSP buffer
-    vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-      vim.lsp.buf.format({ timeout_ms = 10000 })
-    end, { desc = 'Format current buffer with LSP' })
   end
 
   -- Ensure the servers above are installed
@@ -85,14 +81,6 @@ local config = function ()
       }
     end,
   }
-
-  -- Handling clangd warning: multiple different client offset_encodings detected for buffer, this is not supported yet
-  capabilities.offsetEncoding = { "utf-16" }
-  require('lspconfig').clangd.setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-    handlers = handlers,
-  })
 
   -- Add border on LspInfo command
   require('lspconfig.ui.windows').default_options.border = 'single'
@@ -137,6 +125,14 @@ local config = function ()
       },
     handlers = handlers,
   }
+  -- Handling clangd warning: multiple different client offset_encodings detected for buffer, this is not supported yet
+  capabilities.offsetEncoding = { "utf-16" }
+  lspconfig.clangd.setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+    handlers = handlers,
+  })
+
 
 end
 
