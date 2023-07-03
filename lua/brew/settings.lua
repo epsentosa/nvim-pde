@@ -5,6 +5,7 @@ vim.g.loaded_netrwPlugin = 1
 
 local set = vim.opt
 set.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+set.nu = true
 set.relativenumber = true
 set.cmdheight = 1
 set.tabstop = 4
