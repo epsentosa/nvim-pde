@@ -78,7 +78,7 @@ hop_keymap = function ()
   keymap('', 'T', function()
     hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })
   end, {remap=true})
-  keymap('n', '<C-h>', vim.cmd.HopWord )
+  keymap('n', 's', vim.cmd.HopWord )
 end
 
 -- Telescope
