@@ -1,8 +1,8 @@
 local config = function ()
   require'marks'.setup {
     mappings = {
-      next = "]m",
-      prev = "[m",
+      next = "]x",
+      prev = "[x",
     }
   }
 end
