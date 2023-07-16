@@ -4,10 +4,10 @@ local config = function ()
     fill_char = '-',
     sections = {
       left = {
-         'content', ' '
+         'content'
       },
       right = {
-         ' ', 'number_of_folded_lines', ': ', 'percentage', string.rep(' ', 130)
+         ' ', 'number_of_folded_lines', ': ', 'percentage', string.rep(' ', 110)
       }
     }
   }
