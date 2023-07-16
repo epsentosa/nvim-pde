@@ -51,7 +51,7 @@ keymap("n", "qq", '<cmd>Bdelete this<CR>', opts)
 keymap("n", "<leader>lg", vim.cmd.LazyGit, opts)
 
 -- Mind Notes
-keymap('n', '<leader>n', vim.cmd.MindOpenMain, opts)
+keymap('n', '<leader>n', '<cmd>Neorg index<CR>', opts)
 
 -- Toggle Terminal
 keymap('n', '<C-\\>', vim.cmd.ToggleTerm, opts)
