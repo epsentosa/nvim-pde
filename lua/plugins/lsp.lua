@@ -1,15 +1,50 @@
+local signIcon = {
+  ERROR = "",
+  WARN = "",
+  INFO = "",
+  HINT = "",
+}
+
+local severities = {
+  { name = "DiagnosticSignError", text = signIcon.ERROR },
+  { name = "DiagnosticSignWarn", text = signIcon.WARN },
+  { name = "DiagnosticSignHint", text = signIcon.HINT },
+  { name = "DiagnosticSignInfo", text = signIcon.INFO },
+}
+
 local config = function ()
   --  Add any additional override configuration in the following tables. They will be passed to
   --  the `settings` field of the server config. You must look up that documentation yourself.
   local servers = {
     gopls = {
       gopls = {
-        analyses = { unusedparams = true },
+        gofumpt = true, -- A stricter gofmt
+        codelenses = {
+          -- SEE: https://github.com/golang/tools/blob/master/gopls/doc/settings.md#code-lenses
+          gc_details = true, -- Toggle the calculation of gc annotations
+          generate = true, -- Runs go generate for a given directory
+          regenerate_cgo = true, -- Regenerates cgo definitions
+          test = true, -- Runs go test for a specific set of test or benchmark functions
+          tidy = true, -- Runs go mod tidy for a module
+          upgrade_dependency = true, -- Upgrades a dependency in the go.mod file for a module
+          vendor = true, -- Runs go mod vendor for a module
+        },
+        usePlaceholders = true, -- enables placeholders for function parameters or struct fields in completion responses
+        analyses = {
+          -- SEE: https://github.com/golang/tools/blob/master/gopls/doc/analyzers.md
+          fieldalignment = true, -- find structs that would use less memory if their fields were sorted
+          nilness = true, -- check for redundant or impossible nil comparisons
+          -- shadow = true, -- check for possible unintended shadowing of variables
+          unusedparams = true, -- check for unused parameters of functions
+          unusedwrite = true, -- checks for unused writes, an instances of writes to struct fields and arrays that are never read
+          useany = true, -- check for constraints that could be simplified to "any"
+        },
         staticcheck = true,
       },
     },
     lua_ls = {
       Lua = {
+        diagnostics = { globals = { "vim" } },
         workspace = { checkThirdParty = false },
         telemetry = { enable = false },
       },
@@ -30,16 +65,13 @@ local config = function ()
   })
 
   local handlers = {
-    ["textDocument/publishDiagnostics"] = vim.lsp.with(
-      vim.lsp.diagnostic.on_publish_diagnostics, {
-        underline = true,
-        virtual_text = false,
-        signs = true,
-        update_in_insert = false,
-      }
-    ),
     ["textDocument/hover"] = vim.lsp.with(
       vim.lsp.handlers.hover, {
+        border = "rounded",
+      }
+    ),
+    ["textDocument/signatureHelp"] = vim.lsp.with(
+      vim.lsp.handlers.signature_help, {
         border = "rounded",
       }
     ),
@@ -85,22 +117,6 @@ local config = function ()
   -- Add border on LspInfo command
   require('lspconfig.ui.windows').default_options.border = 'single'
 
-  -- Change Sign Symbol
-  local function lspSymbol(name, icon)
-    vim.fn.sign_define(
-    'DiagnosticSign' .. name,{
-      text = icon,
-      numhl = 'DiagnosticDefault' .. name,
-      texthl = 'DiagnosticSign' .. name
-      }
-    )
-  end
-  lspSymbol('Error', '')
-  lspSymbol('Info', '')
-  lspSymbol('Hint', '')
-  lspSymbol('Info', '')
-  lspSymbol('Warn', '')
-
   -- special case not using mason due to anomali if using multiple environment
   local lspconfig = require('lspconfig')
   lspconfig.pylsp.setup {
@@ -110,16 +126,9 @@ local config = function ()
       pylsp = {
         plugins = {
           pyflakes = { enabled = true },
-          -- pylint = {enabled = false},
-          autopep8 = { enabled = true },
-          -- yapf = {enabled = false},
+          autopep8 = { enabled = false },
           mccabe = { enabled = true },
           pycodestyle = { enabled = false },
-          -- rope_completion = { enabled = true },
-          -- rope_autoimport = {
-            --   enabled = true,
-            --   memory = true,
-            -- },
           },
         },
       },
@@ -132,6 +141,26 @@ local config = function ()
     on_attach = on_attach,
     handlers = handlers,
   })
+
+  vim.diagnostic.config({
+    underline = true,
+    virtual_text = false,
+    sign = true,
+    float = {
+      focusable = true,
+      style = "minimal",
+      source = "always",
+      header = "",
+      prefix = "",
+    },
+    update_in_insert = false,
+    severity_sort = true,
+  })
+
+  -- set symbols severities
+  for _, sign in ipairs(severities) do
+    vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name })
+  end
 
 end
 
