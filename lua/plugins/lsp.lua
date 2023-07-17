@@ -125,9 +125,9 @@ local config = function ()
     settings = {
       pylsp = {
         plugins = {
-          pyflakes = { enabled = true },
+          pyflakes = { enabled = false },
           autopep8 = { enabled = false },
-          mccabe = { enabled = true },
+          mccabe = { enabled = false },
           pycodestyle = { enabled = false },
           },
         },
