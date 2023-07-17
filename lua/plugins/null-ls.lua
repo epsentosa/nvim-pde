@@ -2,6 +2,7 @@ local config = function ()
   local null_ls = require("null-ls")
 
   local formatting = null_ls.builtins.formatting
+  local diagnostics = null_ls.builtins.diagnostics
 
   local sources = {
     formatting.lua_format.with({
@@ -21,6 +22,9 @@ local config = function ()
         "-style={IndentWidth: 4}"
       }
     }),
+    diagnostics.golangci_lint,
+    -- diagnostics.flake8,
+    -- diagnostics.pycodestyle,
   }
 
   null_ls.setup({
