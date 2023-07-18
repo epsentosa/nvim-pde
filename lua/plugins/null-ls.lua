@@ -23,9 +23,14 @@ local config = function ()
       }
     }),
     diagnostics.golangci_lint,
-    diagnostics.flake8.with({
+    -- diagnostics.flake8.with({
+    --   extra_args = {
+    --     "--ignore=E501,E722,W503,E203,F401",
+    --   }
+    -- }),
+    diagnostics.pylama.with({
       extra_args = {
-        "--ignore=E501,E722,W503,E203,F401",
+        "--ignore=E501,E722,W503,E203,F401,C901",
       }
     }),
   }
