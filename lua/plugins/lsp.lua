@@ -129,9 +129,9 @@ local config = function ()
           autopep8 = { enabled = false },
           mccabe = { enabled = false },
           pycodestyle = { enabled = false },
-          },
         },
       },
+    },
     handlers = handlers,
   }
   -- Handling clangd warning: multiple different client offset_encodings detected for buffer, this is not supported yet
