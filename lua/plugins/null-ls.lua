@@ -28,9 +28,10 @@ local config = function ()
     --     "--ignore=E501,E722,W503,E203,F401",
     --   }
     -- }),
-    diagnostics.pylama.with({
+    diagnostics.ruff.with({
       extra_args = {
-        "--ignore=E501,E722,W503,E203,F401,C901",
+        "--extend-select=W,COM,ICN",
+        "--ignore=E501,E722,COM812",
       }
     }),
   }
