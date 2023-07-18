@@ -119,19 +119,24 @@ local config = function ()
 
   -- special case not using mason due to anomali if using multiple environment
   local lspconfig = require('lspconfig')
-  lspconfig.pylsp.setup {
+  -- lspconfig.pylsp.setup {
+  --   capabilities = capabilities,
+  --   on_attach = on_attach,
+  --   settings = {
+  --     pylsp = {
+  --       plugins = {
+  --         pyflakes = { enabled = false },
+  --         autopep8 = { enabled = false },
+  --         mccabe = { enabled = false },
+  --         pycodestyle = { enabled = false },
+  --       },
+  --     },
+  --   },
+  --   handlers = handlers,
+  -- }
+  lspconfig.jedi_language_server.setup {
     capabilities = capabilities,
     on_attach = on_attach,
-    settings = {
-      pylsp = {
-        plugins = {
-          pyflakes = { enabled = false },
-          autopep8 = { enabled = false },
-          mccabe = { enabled = false },
-          pycodestyle = { enabled = false },
-        },
-      },
-    },
     handlers = handlers,
   }
   -- Handling clangd warning: multiple different client offset_encodings detected for buffer, this is not supported yet
