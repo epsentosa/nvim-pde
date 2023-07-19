@@ -1,5 +1,5 @@
 local config = function ()
-  require('brew.keymaps')
+  require('eps.keymaps')
   hop_keymap()
   require('hop').setup()
 end

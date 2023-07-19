@@ -11,6 +11,6 @@ return {
 	},
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
-		require("brew.lsp")
+		require("eps.lsp")
 	end,
 }

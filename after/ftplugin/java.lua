@@ -1,1 +1,1 @@
-require("brew.plugin_config.java")
+require("eps.plugin_config.java")

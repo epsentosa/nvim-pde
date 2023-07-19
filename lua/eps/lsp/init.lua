@@ -86,7 +86,7 @@ local on_attach = function(client, bufnr)
 	end
 
 	-- load keymap
-	require("brew.keymaps")
+	require("eps.keymaps")
 	for _, params in ipairs(lsp_mappings) do
 		local keys, func, desc = unpack(params)
 		nmap(keys, func, desc)
