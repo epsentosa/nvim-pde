@@ -139,6 +139,19 @@ local config = function ()
     on_attach = on_attach,
     handlers = handlers,
   }
+  lspconfig.ruff_lsp.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    handlers = handlers,
+    init_options = {
+      settings = {
+        args = {
+          "--extend-select=W,COM,ICN",
+          "--ignore=E501,E722,COM812",
+        },
+      },
+    },
+  }
   -- Handling clangd warning: multiple different client offset_encodings detected for buffer, this is not supported yet
   capabilities.offsetEncoding = { "utf-16" }
   lspconfig.clangd.setup({
