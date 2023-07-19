@@ -56,6 +56,10 @@ keymap('n', '<leader>n', '<cmd>Neorg index<CR>', opts)
 -- Toggle Terminal
 keymap('n', '<C-\\>', vim.cmd.ToggleTerm, opts)
 
+-- Toggle Terminal
+keymap('n', '<leader>ce', vim.cmd.TSContextEnable, opts)
+keymap('n', '<leader>ct', vim.cmd.TSContextToggle, opts)
+
 harpoon = function ()
   keymap("n", "<leader>a", require("harpoon.mark").add_file)
   keymap("n", "<C-e>", require("harpoon.ui").toggle_quick_menu)
