@@ -122,7 +122,7 @@ lspconfig.jedi_language_server.setup({
   handlers = handlers,
   init_options = {
     completion = {
-      disablesnippets = true,
+      disableSnippets = true,
     },
   }
 })
