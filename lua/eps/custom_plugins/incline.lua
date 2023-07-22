@@ -57,6 +57,7 @@ require("incline").setup({
 	render = render,
 	window = {
 		margin = {
+      vertical = { top = 0, bottom = 0 },
 			horizontal = { left = 0, right = 1 },
 		},
 		padding = { left = 0, right = 1 },
