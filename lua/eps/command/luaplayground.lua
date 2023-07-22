@@ -1,4 +1,4 @@
-local luaplayground_path = "/Users/ekoputra/Documents/ekoputra/lua/playgroud.lua"
+local luaplayground_path = "/Users/ekoputra/Documents/ekoputra/lua/playground.lua"
 local set_lines = vim.api.nvim_buf_set_lines
 local cmd = vim.cmd
 
