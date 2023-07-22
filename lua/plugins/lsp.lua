@@ -14,6 +14,6 @@ return {
 	},
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
-		require("eps.lsp")
+		require("eps.custom_plugins.lsp")
 	end,
 }
