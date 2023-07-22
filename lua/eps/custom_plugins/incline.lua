@@ -15,8 +15,7 @@ local get_modified_filepath = function(file_path)
 	dirs[#dirs] = nil
 	local modified_path = ""
 	for _, dir in ipairs(dirs) do
-		local first_char = string.sub(dir, 1, 1)
-		modified_path = modified_path .. first_char .. "/"
+		modified_path = modified_path .. dir:sub(1, 1) .. "/"
 	end
 
 	return modified_path .. filename
