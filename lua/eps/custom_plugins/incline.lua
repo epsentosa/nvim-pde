@@ -60,6 +60,5 @@ require("incline").setup({
 			horizontal = { left = 0, right = 1 },
 		},
 		padding = { left = 0, right = 1 },
-		zindex = 25,
 	},
 })
