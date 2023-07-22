@@ -33,6 +33,7 @@ set.clipboard = ""
 set.lazyredraw = true
 set.mouse = ""
 set.ttimeoutlen = 100
+set.laststatus = 3
 set.list = true
 set.listchars:append "space:⋅"
 set.listchars:append "eol:↴"

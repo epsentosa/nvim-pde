@@ -19,9 +19,7 @@ local config = function ()
     },
     sections = {
       lualine_x = { 'encoding', 'filetype' },
-      lualine_c = {
-        { 'filename', path = 1 },
-      },
+      lualine_c = {},
     }
   }
 
