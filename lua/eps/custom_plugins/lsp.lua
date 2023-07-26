@@ -39,6 +39,15 @@ local servers = {
         useany = true,     -- check for constraints that could be simplified to "any"
       },
       staticcheck = true,
+      hints = {
+        assignVariableTypes = true,
+        compositeLiteralFields = true,
+        compositeLiteralTypes = true,
+        constantValues = true,
+        functionTypeParameters = true,
+        parameterNames = true,
+        rangeVariableTypes = true,
+      },
     },
   },
   lua_ls = {
@@ -46,6 +55,11 @@ local servers = {
       diagnostics = { globals = { "vim" } },
       workspace = { checkThirdParty = false },
       telemetry = { enable = false },
+      hint = {
+        enable = true,
+        arrayIndex = 'Disable',
+        setType = true,
+      },
     },
   },
   jdtls = {},
