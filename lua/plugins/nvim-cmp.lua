@@ -8,6 +8,7 @@ return {
 		"hrsh7th/cmp-buffer", -- source for text in buffer
 		"hrsh7th/cmp-path", -- source for file system paths
 		"hrsh7th/cmp-nvim-lua", -- source for file lua nvim
+		"hrsh7th/cmp-nvim-lsp-signature-help", -- signature help
 		"onsails/lspkind.nvim",
 	},
 	event = "BufReadPre",

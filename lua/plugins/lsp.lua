@@ -10,7 +10,7 @@ return {
 		"folke/neodev.nvim",
 
     -- Show Signature Help on insert Mode
-    "ray-x/lsp_signature.nvim",
+    -- "ray-x/lsp_signature.nvim",
 	},
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()

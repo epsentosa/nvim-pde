@@ -65,6 +65,13 @@ local servers = {
   jdtls = {},
 }
 
+-- local signature_setup = {
+--   bind = true,
+--   doc_lines = 0,
+--   hint_enable = false,
+--   floating_window_above_cur_line = false,
+-- }
+
 -- Setup neovim lua configuration
 require("neodev").setup()
 --
@@ -98,7 +105,8 @@ local on_attach = function(client, bufnr)
     end
     vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
   end
-
+  -- load lsp signature
+  -- require "lsp_signature".on_attach(signature_setup, bufnr)
   -- load keymap
   require("eps.keymaps")
   for _, params in ipairs(lsp_mappings) do
@@ -180,8 +188,3 @@ vim.diagnostic.config({
 for _, sign in ipairs(severities) do
   vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name })
 end
-
-require("lsp_signature").setup({
-  doc_lines = 0,
-  hint_enable = false,
-})
