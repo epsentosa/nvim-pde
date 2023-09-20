@@ -115,14 +115,8 @@ keymap('n', '<leader>q', vim.diagnostic.setloclist)
 keymap('n', '<leader>fb', '<cmd>Telescope file_browser path=%:p:h select_buffer=true initial_mode=normal<CR>', opts)
 
 -- Toggle inlay hints
-local inlay_hint_active = false
 keymap('n', '<leader>ih', function ()
-  inlay_hint_active = not inlay_hint_active
-  if inlay_hint_active then
-    vim.lsp.inlay_hint(0, true)
-  else
-    vim.lsp.inlay_hint(0, false)
-  end
+    vim.lsp.inlay_hint(0, nil)
 end)
 
 -- Toggle diagnostic
