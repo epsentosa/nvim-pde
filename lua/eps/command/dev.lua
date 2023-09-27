@@ -25,3 +25,8 @@ R = function(name)
   RELOAD(name)
   return require(name)
 end
+
+Print_hl = function (hl_group)
+  local result = vim.api.nvim_get_hl(0, {name = hl_group})
+  P(result)
+end
