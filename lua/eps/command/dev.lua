@@ -13,7 +13,7 @@ P = function(v)
 end
 
 RELOAD = function(...)
-  local ok, plenary_reload = pcall(require, "plenary.reload")
+  ok, plenary_reload = pcall(require, "plenary.reload")
   if ok then
     reloader = plenary_reload.reload_module
   end
