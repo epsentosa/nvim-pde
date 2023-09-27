@@ -22,22 +22,3 @@ autocmd("VimEnter", {
 
 -- Reset marks each start open neovim
 autocmd({ "BufRead" }, { command = ":delm a-zA-Z0-9", })
-
--- No relative Number on command mode
-require("eps.colors")
-autocmd("CmdlineEnter", {
-  group = augroup("NoRnuCmdline"),
-  callback = function ()
-    vim.wo.relativenumber = false
-    set_hl("LineNr", { fg = "#99a2b2" })
-    cmd.redraw()
-  end
-})
-
-autocmd("CmdlineLeave", {
-  group = augroup("NoRnuCmdline"),
-  callback = function ()
-    vim.wo.relativenumber = true
-    set_hl("LineNr", { fg = "yellow" })
-  end
-})
