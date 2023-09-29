@@ -3,7 +3,7 @@ local config = function ()
   -- See `:help indent_blankline.txt`
   vim.cmd [[highlight IndentBlanklineIndent guifg=#4d4d4d gui=nocombine]]
 
-  require('indent_blankline').setup {
+  require('ibl').setup {
     char = '┊',
     show_trailing_blankline_indent = false,
     space_char_blankline = " ",
@@ -19,5 +19,6 @@ end
 
 return {
   'lukas-reineke/indent-blankline.nvim',
+  main = 'ibl',
   config = config,
 }
