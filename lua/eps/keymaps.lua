@@ -44,6 +44,9 @@ keymap({ "n", "v" }, "<C-c>", [["+y]])
 
 keymap("n", "<leader>t", vim.cmd.TransparentToggle, opts)
 
+-- change to light mode
+keymap("n", "<leader>lm", '<cmd>colorscheme monokai-nightasty<CR>', opts)
+
 -- buffer management
 keymap("n", "qq", '<cmd>Bdelete this<CR>', opts)
 
