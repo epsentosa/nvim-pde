@@ -1,4 +1,4 @@
-local config = function ()
+local config = function()
   local null_ls = require("null-ls")
 
   local formatting = null_ls.builtins.formatting
@@ -10,8 +10,8 @@ local config = function ()
     formatting.black,
     formatting.clang_format.with({
       extra_args = {
-        "-style={IndentWidth: 4}"
-      }
+        "-style={IndentWidth: 4}",
+      },
     }),
     diagnostics.golangci_lint,
   }
@@ -22,7 +22,7 @@ local config = function ()
 end
 
 return {
-  'jose-elias-alvarez/null-ls.nvim',
-  event = 'BufReadPre',
+  "nvimtools/none-ls.nvim",
+  event = "BufReadPre",
   config = config,
 }
