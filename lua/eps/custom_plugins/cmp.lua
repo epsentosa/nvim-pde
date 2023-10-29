@@ -100,8 +100,8 @@ cmp.event:on(
 			["python"] = {
 				["("] = {
 					kind = {
-						-- cmp.lsp.CompletionItemKind.Function,
-						-- cmp.lsp.CompletionItemKind.Method,
+						cmp.lsp.CompletionItemKind.Function,
+						cmp.lsp.CompletionItemKind.Method,
 					},
 					handler = handlers["*"],
 				},
