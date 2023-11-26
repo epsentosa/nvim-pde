@@ -26,6 +26,7 @@ keymap("v", "J", ":m '>+1<CR>gv=gv")
 keymap("v", "K", ":m '<-2<CR>gv=gv")
 
 keymap("n", "J", "mzJ`z<cmd>delm z<CR>")
+keymap("n", "u", "u<cmd>delm z<CR>") -- to works well with marks
 keymap("n", "<C-d>", "<C-d>zz")
 keymap("n", "<C-u>", "<C-u>zz")
 keymap("n", "<C-f>", "<C-f>zz")
