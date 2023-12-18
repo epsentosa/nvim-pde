@@ -22,3 +22,12 @@ autocmd("VimEnter", {
 
 -- Reset marks each start open neovim
 autocmd({ "BufRead" }, { command = ":delm a-zA-Z0-9", })
+
+-- Not using TreeSitter on sql file
+autocmd( { "BufWinEnter" }, {
+  pattern = "*.sql",
+  callback = function ()
+    cmd('TSDisable highlight')
+  end
+  }
+)
