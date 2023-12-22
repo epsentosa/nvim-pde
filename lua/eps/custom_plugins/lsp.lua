@@ -5,13 +5,6 @@ local signIcon = {
   HINT = "",
 }
 
-local severities = {
-  { name = "DiagnosticSignError", text = signIcon.ERROR },
-  { name = "DiagnosticSignWarn",  text = signIcon.WARN },
-  { name = "DiagnosticSignHint",  text = signIcon.HINT },
-  { name = "DiagnosticSignInfo",  text = signIcon.INFO },
-}
-
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
@@ -172,7 +165,14 @@ lspconfig.clangd.setup({
 vim.diagnostic.config({
   underline = true,
   virtual_text = false,
-  sign = true,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = signIcon.ERROR,
+      [vim.diagnostic.severity.WARN] = signIcon.WARN,
+      [vim.diagnostic.severity.INFO] = signIcon.INFO,
+      [vim.diagnostic.severity.HINT] = signIcon.HINT,
+    },
+  },
   float = {
     focusable = true,
     style = "minimal",
@@ -183,8 +183,3 @@ vim.diagnostic.config({
   update_in_insert = false,
   severity_sort = true,
 })
-
--- set symbols severities
-for _, sign in ipairs(severities) do
-  vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name })
-end
