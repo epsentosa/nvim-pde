@@ -101,7 +101,7 @@ local on_attach = function(client, bufnr)
   -- load lsp signature
   -- require "lsp_signature".on_attach(signature_setup, bufnr)
   -- load keymap
-  require("eps.keymaps")
+  local lsp_mappings =  require("eps.keymaps").lsp_mappings
   for _, params in ipairs(lsp_mappings) do
     local keys, func, desc = unpack(params)
     nmap(keys, func, desc)

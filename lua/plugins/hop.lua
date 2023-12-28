@@ -1,6 +1,6 @@
 local config = function ()
-  require('eps.keymaps')
-  hop_keymap()
+  local keymap = require('eps.keymaps')
+  keymap.hop_keymap()
   require('hop').setup()
 end
 

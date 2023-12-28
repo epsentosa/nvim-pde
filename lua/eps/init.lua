@@ -1,5 +1,5 @@
 require("eps.lazy")
-require("eps.keymaps")
+require("eps.keymaps").default_keymaps()
 require("eps.settings")
 require("eps.colors")
 require("eps.event")
