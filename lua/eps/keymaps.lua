@@ -124,8 +124,8 @@ M.harpoon_keymap = function(harpoon)
     local cmd = string.format("call search('%s')", curr_file)
     vim.cmd(cmd)
   end)
-  keymap("n", "H", function() harpoon:list():next() end)
-  keymap("n", "L", function() harpoon:list():prev() end)
+  keymap("n", "H", function() harpoon:list():prev() end)
+  keymap("n", "L", function() harpoon:list():next() end)
 end
 
 M.hop_keymap = function()
