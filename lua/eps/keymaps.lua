@@ -39,6 +39,9 @@ function M.default_keymaps()
   keymap("n", "n", "nzzzv")
   keymap("n", "N", "Nzzzv")
 
+  keymap("n", "<C-n>", vim.cmd.bnext)
+  keymap("n", "<C-p>", vim.cmd.bprev)
+
   -- Find and Replace current word under cursor
   keymap("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { silent = false })
 
