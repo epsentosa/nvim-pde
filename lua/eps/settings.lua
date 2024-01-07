@@ -1,7 +1,7 @@
 vim.notify = require('notify')
 
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
 
 local set = vim.opt
 set.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
@@ -11,7 +11,6 @@ set.cmdheight = 1
 set.tabstop = 4
 set.softtabstop = -1
 set.shiftwidth = 0
-set.expandtab = true
 set.linespace = 50
 set.splitbelow = true
 set.splitright = true
