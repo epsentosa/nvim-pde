@@ -10,6 +10,7 @@ set.relativenumber = true
 set.cmdheight = 1
 set.tabstop = 4
 set.softtabstop = -1
+set.expandtab = true
 set.shiftwidth = 0
 set.linespace = 50
 set.splitbelow = true
