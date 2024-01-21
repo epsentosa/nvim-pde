@@ -13,7 +13,11 @@ local config = function()
         "-style={IndentWidth: 4}",
       },
     }),
-    diagnostics.golangci_lint,
+    diagnostics.golangci_lint.with({
+      extra_args = {
+        "--disable staticcheck"
+      }
+    }),
   }
 
   null_ls.setup({
