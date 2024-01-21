@@ -90,8 +90,8 @@ function M.default_keymaps()
   keymap("n", "<leader>df", vim.diagnostic.open_float)
   keymap("n", "<leader>q", vim.diagnostic.setloclist)
 
-  -- Telescope File Browser
-  keymap("n", "<leader>fb", "<cmd>Telescope file_browser path=%:p:h select_buffer=true initial_mode=normal<CR>", opts)
+  -- Oil File Browser
+  keymap("n", "<leader>fb", "<cmd>Oil --float<cr>", { desc = "Open parent directory" })
 
   -- Toggle inlay hints
   keymap("n", "<leader>ih", function()
