@@ -1,4 +1,4 @@
-" Vim syntax file
+" LVim syntax file
 " Language:     SQL with SQLite and other additions.
 " Maintainer:   Jessica K McIntosh AT gmail DOT com
 " Last Changed: Thu Jan 23 06:00 PM 2014 EST
@@ -215,24 +215,30 @@ syn match   sqlSetValues    contained "\<\(\(un\)\?ordered\)\>"
 
 " Clickhouse config, still add the most common used keyword
 syn case match
-syn keyword sqlClickhouseKeyword            MATERIALIZED ENGINE SETTINGS TTL INTERVAL MONTH
+syn keyword sqlClickhouseKeyword            materialized engine settings ttl interval month array both
+syn keyword sqlClickhouseKeyword            MATERIALIZED ENGINE SETTINGS TTL INTERVAL MONTH ARRAY BOTH
 
 syn match   sqlClickhouseStatement          "\(\w*\)\.\@="
 
-syn match   sqlClickhouseFunction           "\<\(to\w*\|parse\w*\|any\w*\|uniq\w*\|sum\w*\|city\w*\|Distributed\)(\@="
+syn match   sqlClickhouseFunction           "\<\(to\w*\|parse\w*\|any\w*\|uniq\w*\|city\w*\|Distributed\|\trim\)(\@="
+syn match   sqlClickhouseFunction           "\<\(sum\w*\|max\w*\|min\w*\|avg\w*\)(\@="
+syn match   sqlClickhouseFunction           "\<\(array\|date_trunc\)(\@="
 
 syn keyword sqlClickhouseAggregateFunction  max min count sum avg any                                                   contained
 syn keyword sqlClickhouseAggregateFunction  anyLast anyHeavy argMin argMax sumMap minMap maxMap uniq uniqCombined       contained
 
 syn match   sqlClickhouseTypeFunction       "\<\(AggregateFunction\|SimpleAggregateFunction\|DateTime\)(\@="
 syn match   sqlClickhouseTypeFunction       "\<\(Nullable\|LowCardinality\)(\@="
+syn match   sqlClickhouseTypeFunction       "\<\(JSONExtract\|JSONExtractString\|JSONExtractArrayRaw\|JSON_QUERY\)(\@="
 
 syn match   sqlClickhouseFunctionCall       "\w*,"      contains=sqlClickhouseAggregateFunction
 
 syn match   sqlClickhouseType               "\<String\|FixedString\>"
 syn match   sqlClickhouseType               "\<UInt8\|UInt16\|UInt32\|UInt64\|UInt128\|UInt256\|Int8\|Int16\|Int32\|Int64\|Int128\|Int256\>"
 syn match   sqlClickhouseType               "\<Float32\|Float64\>"
-syn match   sqlClickhouseType               "\<Bool\|JSON\|UUID\|Date\>"
+syn match   sqlClickhouseType               "\<Bool\|UUID\|Date\>"
+syn match   sqlClickhouseType               "\<JSON\>"
+syn match   sqlClickhouseType               "\<DateTime\>"
 syn match   sqlClickhouseType               "\<Array\|Map\|Tuple\>"
 
 " Stolen from sh.vim.
