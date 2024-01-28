@@ -12,9 +12,6 @@ local config = function ()
         return conf
       end,
     },
-    keymaps = {
-      ["<ESC>"] = "actions.close",
-    },
     win_options = {
       colorcolumn = "",
     },
