@@ -5,8 +5,7 @@ local config = function ()
 end
 
 return {
-  'phaazon/hop.nvim',
-  branch = 'v2',
+  'smoka7/hop.nvim',
   config = config,
   event = 'VeryLazy',
 }
