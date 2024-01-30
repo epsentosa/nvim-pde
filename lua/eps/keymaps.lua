@@ -65,10 +65,7 @@ function M.default_keymaps()
   -- Mind Notes
   keymap("n", "<leader>n", "<cmd>Neorg index<CR>", opts)
 
-  -- Toggle Terminal
-  keymap("n", "<C-\\>", vim.cmd.ToggleTerm, opts)
-
-  -- Toggle Terminal
+  -- Toggle TSContext
   keymap("n", "<leader>ce", vim.cmd.TSContextEnable, opts)
   keymap("n", "<leader>ct", vim.cmd.TSContextToggle, opts)
 
