@@ -55,7 +55,6 @@ local servers = {
       },
     },
   },
-  jdtls = {},
 }
 
 -- local signature_setup = {
@@ -154,6 +153,15 @@ lspconfig.ruff_lsp.setup({
     },
   },
 })
+
+-- groovy lsp setup
+-- lspconfig.groovyls.setup{
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+--   handlers = handlers,
+--   cmd = { "java", "-jar", "~/Documents/ekoputra/groovy/groovy-language-server-all.jar" },
+--   filetypes = { "groovy" },
+-- }
 -- Handling clangd warning: multiple different client offset_encodings detected for buffer, this is not supported yet
 capabilities.offsetEncoding = { "utf-16" }
 lspconfig.clangd.setup({
