@@ -11,4 +11,5 @@ end
 return {
   "j-hui/fidget.nvim",
   config = config,
+  ft = { "python", "lua", "go" }
 }
