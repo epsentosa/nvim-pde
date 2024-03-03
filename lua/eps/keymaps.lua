@@ -71,7 +71,7 @@ function M.default_keymaps()
 
   keymap("n", "<leader>/", "<cmd>lua require'telescope.builtin'.live_grep{ search_dirs={\"%:p\"} }<cr>")
 
-  keymap("n", "<leader>?", require("telescope.builtin").oldfiles, { desc = "[?] Find recently opened files" })
+  keymap("n", "<leader>?", telescope.oldfiles, { desc = "[?] Find recently opened files" })
   keymap("n", "<leader><leader>", telescope.buffers, { desc = "[ ] Find existing buffers" })
   keymap("n", "<leader>sf", telescope.find_files, { desc = "[S]earch [F]iles" })
   keymap("n", "<leader>sh", telescope.help_tags, { desc = "[S]earch [H]elp" })
