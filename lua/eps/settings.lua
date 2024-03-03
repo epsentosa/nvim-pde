@@ -35,8 +35,7 @@ set.mouse = ""
 set.ttimeoutlen = 100
 set.laststatus = 3
 set.list = true
-set.listchars:append "space:⋅"
-set.listchars:append "eol:↴"
+set.listchars = { tab = '» ', trail = '·', nbsp = '␣', space = "⋅", eol = "↴" }
 set.completeopt:append({
   "menuone",
   "noinsert",
