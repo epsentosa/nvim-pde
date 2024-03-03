@@ -23,6 +23,15 @@ autocmd("VimEnter", {
 -- Reset marks each start open neovim
 autocmd({ "BufRead" }, { command = ":delm a-zA-Z0-9", })
 
+autocmd({ "TextYankPost" }, {
+  desc = 'Highlight when yanking (copying) text',
+  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  }
+)
+
 -- Not using TreeSitter on sql file
 autocmd( { "BufWinEnter" }, {
   pattern = "*.sql",
