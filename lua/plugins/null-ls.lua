@@ -18,6 +18,7 @@ local config = function()
         "--disable staticcheck"
       }
     }),
+    diagnostics.mypy,
   }
 
   null_ls.setup({
