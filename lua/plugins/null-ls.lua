@@ -13,12 +13,14 @@ local config = function()
         "-style={IndentWidth: 4}",
       },
     }),
+    formatting.npm_groovy_lint,
     diagnostics.golangci_lint.with({
       extra_args = {
         "--disable staticcheck"
       }
     }),
     diagnostics.mypy,
+    diagnostics.npm_groovy_lint,
   }
 
   null_ls.setup({
