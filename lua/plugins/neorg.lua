@@ -17,8 +17,7 @@ end
 
 return {
   "nvim-neorg/neorg",
-  build = ":Neorg sync-parsers",
-  cmd = {"Neorg", "Neorg index"},
+  dependencies = { "luarocks.nvim" },
   init = function ()
     vim.g.maplocalleader = " "
 
