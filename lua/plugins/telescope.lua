@@ -21,13 +21,21 @@ local config = function ()
         previewer = false,
       }
     },
+    extensions = {
+        ["zf-native"] = {}
+    },
   }
+
+  require("telescope").load_extension("zf-native")
 end
 
 return {
   'nvim-telescope/telescope.nvim',
-  tag = '0.1.4',
-  dependencies = { { 'nvim-lua/plenary.nvim' } },
-  event = 'VeryLazy',
+  -- tag = '0.1.6',
+  dependencies = {
+    { 'nvim-lua/plenary.nvim' },
+    { 'natecraddock/telescope-zf-native.nvim' },
+  },
+  -- event = 'VeryLazy',
   config = config,
 }
