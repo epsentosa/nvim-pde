@@ -32,8 +32,8 @@ function M.default_keymaps()
 
   keymap("n", "J", "mzJ`z<cmd>delm z<CR>")
   keymap("n", "u", "u<cmd>delm z<CR>") -- to works well with marks
-  keymap("n", "<C-d>", "<C-d>zz")
-  keymap("n", "<C-u>", "<C-u>zz")
+  -- keymap("n", "<C-d>", "<C-d>zz")
+  -- keymap("n", "<C-u>", "<C-u>zz")
   keymap("n", "<C-f>", "<C-f>zz")
   keymap("n", "<C-b>", "<C-b>zz")
   keymap("n", "n", "nzzzv")
@@ -108,7 +108,7 @@ function M.default_keymaps()
 end
 
 M.harpoon_keymap = function(harpoon)
-  keymap("n", "<leader>a", function() harpoon:list():append() end)
+  keymap("n", "<leader>a", function() harpoon:list():add() end)
 
   local Path = require("plenary.path")
   local function normalize_path(buf_name, root)
