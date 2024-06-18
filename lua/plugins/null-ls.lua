@@ -19,12 +19,19 @@ local config = function()
         "--disable staticcheck"
       }
     }),
-    diagnostics.mypy,
-    diagnostics.npm_groovy_lint,
+    -- diagnostics.mypy,
+    -- diagnostics.npm_groovy_lint,
+    null_ls.builtins.diagnostics.pylint.with({
+      method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
+      filter = function(d)
+        return d.severity == vim.diagnostic.severity.ERROR
+      end,
+    })
   }
 
   null_ls.setup({
     sources = sources,
+    fallback_severity = vim.diagnostic.severity.ERROR,
   })
 end
 
