@@ -32,6 +32,7 @@ set.colorcolumn = "110"
 set.clipboard = ""
 set.lazyredraw = true
 set.mouse = ""
+set.guicursor = ""
 set.ttimeoutlen = 100
 set.laststatus = 3
 set.list = true
