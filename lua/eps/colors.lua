@@ -1,10 +1,19 @@
-vim.cmd.colorscheme("sonokai")
-set_hl = function (hl_group, opts, ns_id)
-  if ns_id then
-    vim.api.nvim_set_hl(ns_id , hl_group, opts)
-  else
-    vim.api.nvim_set_hl(0 , hl_group, opts)
-  end
+vim.cmd.colorscheme("kanagawa")
+set_hl = function(hl_group, opts, ns_id)
+	if ns_id then
+		vim.api.nvim_set_hl(ns_id, hl_group, opts)
+	else
+		vim.api.nvim_set_hl(0, hl_group, opts)
+	end
+end
+
+local current_coloscheme = vim.g.colors_name
+
+if current_coloscheme == "sonokai" then
+	set_hl("WinBar", { blend = 30 })
+	set_hl("WinBarNC", { blend = 30 })
+elseif current_coloscheme == "kanagawa" then
+	set_hl("TelescopeSelection", { link = "Visual" })
 end
 
 -- overide hl colors from default theme below
@@ -22,5 +31,3 @@ set_hl("InclineNormal", { bg = "#264125" })
 set_hl("TreesitterContextLineNumber", { link = "LineNrAbove" })
 set_hl("LspSignatureActiveParameter", { link = "LocalCurrentWord" })
 set_hl("LspInlayHint", { italic = true, fg = "#7c7e50" })
-set_hl("WinBar", { blend = 30 })
-set_hl("WinBarNC", { blend = 30 })
