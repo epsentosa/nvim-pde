@@ -1,5 +1,4 @@
 vim.cmd.colorscheme("sonokai")
-
 set_hl = function (hl_group, opts, ns_id)
   if ns_id then
     vim.api.nvim_set_hl(ns_id , hl_group, opts)
@@ -23,3 +22,5 @@ set_hl("InclineNormal", { bg = "#264125" })
 set_hl("TreesitterContextLineNumber", { link = "LineNrAbove" })
 set_hl("LspSignatureActiveParameter", { link = "LocalCurrentWord" })
 set_hl("LspInlayHint", { italic = true, fg = "#7c7e50" })
+set_hl("WinBar", { blend = 30 })
+set_hl("WinBarNC", { blend = 30 })
