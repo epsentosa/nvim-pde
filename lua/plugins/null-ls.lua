@@ -14,19 +14,24 @@ local config = function()
       },
     }),
     formatting.npm_groovy_lint,
+    -- diagnostics.npm_groovy_lint,
     diagnostics.golangci_lint.with({
       extra_args = {
         "--disable staticcheck"
       }
     }),
-    -- diagnostics.mypy,
-    -- diagnostics.npm_groovy_lint,
-    null_ls.builtins.diagnostics.pylint.with({
+    diagnostics.mypy.with({
       method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
       filter = function(d)
         return d.severity == vim.diagnostic.severity.ERROR
       end,
-    })
+    }),
+    -- null_ls.builtins.diagnostics.pylint.with({
+    --   method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
+    --   filter = function(d)
+    --     return d.severity == vim.diagnostic.severity.ERROR
+    --   end,
+    -- })
   }
 
   null_ls.setup({
