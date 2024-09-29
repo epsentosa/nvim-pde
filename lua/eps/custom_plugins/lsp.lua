@@ -169,6 +169,12 @@ lspconfig.clangd.setup({
   on_attach = on_attach,
   handlers = handlers,
 })
+lspconfig.intelephense.setup{}
+lspconfig.ts_ls.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  handlers = handlers,
+})
 
 vim.diagnostic.config({
   underline = true,
