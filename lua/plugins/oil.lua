@@ -30,4 +30,5 @@ end
 return {
   'stevearc/oil.nvim',
   config = config,
+  cmd = "Oil",
 }
