@@ -82,8 +82,12 @@ function M.default_keymaps()
   keymap("n", "<leader>hh", telescope.highlights, { desc = "highlights" })
 
   -- Diagnostic keymaps
-  keymap("n", "[d", vim.diagnostic.goto_prev)
-  keymap("n", "]d", vim.diagnostic.goto_next)
+  keymap("n", "[d", function ()
+    vim.diagnostic.jump({ count = -1, float = true })
+  end)
+  keymap("n", "]d", function ()
+    vim.diagnostic.jump({ count = 1, float = true })
+  end)
   keymap("n", "<leader>df", vim.diagnostic.open_float)
   keymap("n", "<leader>q", vim.diagnostic.setloclist)
 
@@ -159,13 +163,20 @@ M.lsp_mappings = {
   { "<leader>ws", telescope.lsp_dynamic_workspace_symbols,                          "[W]orkspace [S]ymbols" },
   { "gp",         "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", "[G]oto [P]review" },
   { "gP",         "<cmd>lua require('goto-preview').close_all_win()<CR>",           "Clear Preview" },
-  -- See `:help K` for why this keymap
-  { "K",          vim.lsp.buf.hover,                                                "Hover Documentation" },
-  { "<C-k>",      vim.lsp.buf.signature_help,                                       "Signature Documentation" },
-  -- Lesser used LSP functionality
   { "gD",         vim.lsp.buf.declaration,                                          "[G]oto [D]eclaration" },
   { "<leader>wa", vim.lsp.buf.add_workspace_folder,                                 "[W]orkspace [A]dd Folder" },
   { "<leader>wr", vim.lsp.buf.remove_workspace_folder,                              "[W]orkspace [R]emove Folder" },
+  { "K",
+    function ()
+      vim.lsp.buf.hover({ border = "rounded" })
+    end, "Hover Documentation",
+  },
+  { "<C-k>",
+    function ()
+       vim.lsp.buf.signature_help({ border = "rounded" })
+    end, "Signature Documentation",
+  },
+  -- Lesser used LSP functionality
   {
     "<leader>wl",
     function()

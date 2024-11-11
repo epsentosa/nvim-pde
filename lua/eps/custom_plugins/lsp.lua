@@ -76,15 +76,6 @@ require("mason").setup({
   ui = { border = "rounded" },
 })
 
-local handlers = {
-  ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-    border = "rounded",
-  }),
-  ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-    border = "rounded",
-  }),
-}
-
 local navic = require("nvim-navic")
 
 local on_attach = function(client, bufnr)
@@ -120,7 +111,6 @@ mason_lspconfig.setup_handlers({
       capabilities = capabilities,
       on_attach = on_attach,
       settings = servers[server_name],
-      handlers = handlers,
     })
   end,
 })
@@ -133,17 +123,15 @@ local lspconfig = require("lspconfig")
 lspconfig.jedi_language_server.setup({
   capabilities = capabilities,
   on_attach = on_attach,
-  handlers = handlers,
   init_options = {
     completion = {
       disableSnippets = true,
     },
   }
 })
-lspconfig.ruff_lsp.setup({
+lspconfig.ruff.setup({
   capabilities = capabilities,
   on_attach = on_attach,
-  handlers = handlers,
   init_options = {
     settings = {
       args = {
@@ -167,13 +155,11 @@ capabilities.offsetEncoding = { "utf-16" }
 lspconfig.clangd.setup({
   capabilities = capabilities,
   on_attach = on_attach,
-  handlers = handlers,
 })
 lspconfig.intelephense.setup{}
 lspconfig.ts_ls.setup({
   capabilities = capabilities,
   on_attach = on_attach,
-  handlers = handlers,
 })
 
 vim.diagnostic.config({
@@ -190,7 +176,7 @@ vim.diagnostic.config({
   float = {
     focusable = true,
     style = "minimal",
-    source = "always",
+    source = "if_many",
     header = "",
     prefix = "",
   },
