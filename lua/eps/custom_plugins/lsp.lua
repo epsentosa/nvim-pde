@@ -141,6 +141,12 @@ lspconfig.ruff.setup({
     },
   },
 })
+lspconfig.intelephense.setup{}
+lspconfig.ts_ls.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+lspconfig.protols.setup{}
 
 -- groovy lsp setup
 -- lspconfig.groovyls.setup{
@@ -152,15 +158,11 @@ lspconfig.ruff.setup({
 -- }
 -- Handling clangd warning: multiple different client offset_encodings detected for buffer, this is not supported yet
 capabilities.offsetEncoding = { "utf-16" }
-lspconfig.clangd.setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-})
-lspconfig.intelephense.setup{}
-lspconfig.ts_ls.setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-})
+-- lspconfig.clangd.setup({
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+--   filetypes = { "c", "cpp" },
+-- })
 
 vim.diagnostic.config({
   underline = true,
