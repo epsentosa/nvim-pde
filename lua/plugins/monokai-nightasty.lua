@@ -1,6 +1,6 @@
 local config = function ()
   vim.opt.background = "light"
-  -- vim.cmd("TransparentToggle")
+  vim.cmd("TransparentToggle")
   require("monokai-nightasty").setup({
     on_highlights = function(highlights)
       highlights.IblWhitespace = nil
