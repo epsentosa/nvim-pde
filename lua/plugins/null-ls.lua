@@ -16,9 +16,9 @@ local config = function()
     formatting.npm_groovy_lint,
     -- diagnostics.npm_groovy_lint,
     diagnostics.golangci_lint.with({
-      extra_args = {
-        "--disable staticcheck"
-      }
+      -- extra_args = {
+      --   "--disable staticcheck"
+      -- }
     }),
     diagnostics.mypy.with({
       method = null_ls.methods.DIAGNOSTICS_ON_SAVE,

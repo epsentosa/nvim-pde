@@ -4,6 +4,7 @@ local config = function ()
     light_style = "day",    -- The theme is used when the background is set to light
     terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
     on_colors = function(colors) end,
+    transparent = true,    -- Enable this to disable setting the background color
     on_highlights = function(highlights, colors)
       highlights.TreesitterContext = {
         bg = colors.bg_dark,
