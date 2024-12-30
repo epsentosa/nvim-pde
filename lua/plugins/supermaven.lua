@@ -5,6 +5,7 @@ local config = function ()
       clear_suggestion = "<C-]>",
       accept_word = "<C-j>",
     },
+    ignore_filetypes = { "log" },
     disable_inline_completion = false, -- disables inline completion for use with cmp
     disable_keymaps = false, -- disables built in keymaps for more manual control
   })
@@ -13,4 +14,5 @@ end
 return {
   "supermaven-inc/supermaven-nvim",
   config = config,
+  cmd = "SupermavenStart"
 }
