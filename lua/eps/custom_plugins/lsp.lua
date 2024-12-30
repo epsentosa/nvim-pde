@@ -1,8 +1,8 @@
 local signIcon = {
-  ERROR = "",
-  WARN = "",
-  INFO = "",
-  HINT = "",
+  ERROR = "",
+  WARN = "",
+  INFO = "",
+  HINT = "",
 }
 
 --  Add any additional override configuration in the following tables. They will be passed to
