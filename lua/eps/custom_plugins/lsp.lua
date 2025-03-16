@@ -13,7 +13,7 @@ local servers = {
       gofumpt = true, -- A stricter gofmt
       codelenses = {
         -- SEE: https://github.com/golang/tools/blob/master/gopls/doc/settings.md#code-lenses
-        gc_details = true,     -- Toggle the calculation of gc annotations
+        gc_details = false,     -- Toggle the calculation of gc annotations
         generate = true,       -- Runs go generate for a given directory
         regenerate_cgo = true, -- Regenerates cgo definitions
         test = true,           -- Runs go test for a specific set of test or benchmark functions
