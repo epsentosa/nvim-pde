@@ -8,4 +8,7 @@ end
 return {
   'tzachar/local-highlight.nvim',
   config = config,
+  dependencies = {
+    'folke/snacks.nvim',
+  },
 }
