@@ -1,10 +1,3 @@
-local signIcon = {
-  ERROR = "",
-  WARN = "",
-  INFO = "",
-  HINT = "",
-}
-
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
@@ -13,7 +6,7 @@ local servers = {
       gofumpt = true, -- A stricter gofmt
       codelenses = {
         -- SEE: https://github.com/golang/tools/blob/master/gopls/doc/settings.md#code-lenses
-        gc_details = false,     -- Toggle the calculation of gc annotations
+        gc_details = false,    -- Toggle the calculation of gc annotations
         generate = true,       -- Runs go generate for a given directory
         regenerate_cgo = true, -- Regenerates cgo definitions
         test = true,           -- Runs go test for a specific set of test or benchmark functions
@@ -21,15 +14,15 @@ local servers = {
         upgrade_dependency = true, -- Upgrades a dependency in the go.mod file for a module
         vendor = true,         -- Runs go mod vendor for a module
       },
-      usePlaceholders = false,  -- enables placeholders for function parameters or struct fields in completion responses
+      usePlaceholders = false, -- enables placeholders for function parameters or struct fields in completion responses
       analyses = {
         -- SEE: https://github.com/golang/tools/blob/master/gopls/doc/analyzers.md
         -- fieldalignment = true, -- find structs that would use less memory if their fields were sorted
-        nilness = true,    -- check for redundant or impossible nil comparisons
+        nilness = true,  -- check for redundant or impossible nil comparisons
         -- shadow = true, -- check for possible unintended shadowing of variables
         unusedparams = true, -- check for unused parameters of functions
         unusedwrite = true, -- checks for unused writes, an instances of writes to struct fields and arrays that are never read
-        useany = true,     -- check for constraints that could be simplified to "any"
+        useany = true,   -- check for constraints that could be simplified to "any"
       },
       staticcheck = true,
       hints = {
@@ -50,7 +43,7 @@ local servers = {
       telemetry = { enable = false },
       hint = {
         enable = true,
-        arrayIndex = 'Disable',
+        arrayIndex = "Disable",
         setType = true,
       },
     },
@@ -64,9 +57,6 @@ local servers = {
 --   floating_window_above_cur_line = false,
 -- }
 
--- Setup neovim lua configuration
-require("neodev").setup()
---
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
@@ -91,7 +81,7 @@ local on_attach = function(client, bufnr)
   -- load lsp signature
   -- require "lsp_signature".on_attach(signature_setup, bufnr)
   -- load keymap
-  local lsp_mappings =  require("eps.keymaps").lsp_mappings
+  local lsp_mappings = require("eps.keymaps").lsp_mappings
   for _, params in ipairs(lsp_mappings) do
     local keys, func, desc = unpack(params)
     nmap(keys, func, desc)
@@ -105,15 +95,15 @@ mason_lspconfig.setup({
   ensure_installed = vim.tbl_keys(servers),
 })
 
-mason_lspconfig.setup_handlers({
-  function(server_name)
-    require("lspconfig")[server_name].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = servers[server_name],
-    })
-  end,
-})
+-- mason_lspconfig.setup_handlers({
+--   function(server_name)
+--     require("lspconfig")[server_name].setup({
+--       capabilities = capabilities,
+--       on_attach = on_attach,
+--       settings = servers[server_name],
+--     })
+--   end,
+-- })
 
 -- Add border on LspInfo command
 require("lspconfig.ui.windows").default_options.border = "single"
@@ -127,7 +117,7 @@ lspconfig.jedi_language_server.setup({
     completion = {
       disableSnippets = true,
     },
-  }
+  },
 })
 lspconfig.ruff.setup({
   capabilities = capabilities,
@@ -141,12 +131,12 @@ lspconfig.ruff.setup({
     },
   },
 })
-lspconfig.intelephense.setup{}
+lspconfig.intelephense.setup({})
 lspconfig.ts_ls.setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
-lspconfig.protols.setup{}
+lspconfig.protols.setup({})
 
 -- groovy lsp setup
 -- lspconfig.groovyls.setup{
@@ -163,25 +153,3 @@ capabilities.offsetEncoding = { "utf-16" }
 --   on_attach = on_attach,
 --   filetypes = { "c", "cpp" },
 -- })
-
-vim.diagnostic.config({
-  underline = true,
-  virtual_text = false,
-  signs = {
-    text = {
-      [vim.diagnostic.severity.ERROR] = signIcon.ERROR,
-      [vim.diagnostic.severity.WARN] = signIcon.WARN,
-      [vim.diagnostic.severity.INFO] = signIcon.INFO,
-      [vim.diagnostic.severity.HINT] = signIcon.HINT,
-    },
-  },
-  float = {
-    focusable = true,
-    style = "minimal",
-    source = "if_many",
-    header = "",
-    prefix = "",
-  },
-  update_in_insert = false,
-  severity_sort = true,
-})
