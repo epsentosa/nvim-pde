@@ -46,9 +46,9 @@ local render = function(props)
 		{ filename },
 	}
 
-	if vim.api.nvim_buf_get_option(props.buf, "modified") then
-		table.insert(result, " [+]")
-	end
+  if vim.bo[props.buf].modified then
+		table.insert(result, " 󱪞")
+  end
 
 	return result
 end
@@ -57,7 +57,7 @@ require("incline").setup({
 	render = render,
 	window = {
 		margin = {
-      vertical = { top = 0, bottom = 0 },
+			vertical = { top = 0, bottom = 0 },
 			horizontal = { left = 0, right = 1 },
 		},
 		padding = { left = 0, right = 1 },
