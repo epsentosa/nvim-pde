@@ -94,11 +94,6 @@ function M.default_keymaps()
   -- Oil File Browser
   keymap("n", "<leader>fb", "<cmd>Oil --float<cr>", { desc = "Open parent directory" })
 
-  -- Toggle inlay hints
-  keymap("n", "<leader>ih", function()
-    vim.lsp.inlay_hint(0, nil)
-  end)
-
   -- Toggle diagnostic
   local diagnostics_active = true
   vim.keymap.set("n", "<leader>da", function()
@@ -153,11 +148,11 @@ end
 --  LSP
 -- params as --> {keys, func, desc}
 M.lsp_mappings = {
-  { "<leader>r",  vim.lsp.buf.rename,                                               "[R]e[n]ame" },
+  { "<leader>r",  vim.lsp.buf.rename,                                               "[R]ename" },
   { "<leader>ca", vim.lsp.buf.code_action,                                          "[C]ode [A]ction" },
-  { "gd",         vim.lsp.buf.definition,                                           "[G]oto [D]efinition" },
+  { "gd",         telescope.lsp_definitions,                                        "[G]oto [D]efinition" },
   { "gr",         telescope.lsp_references,                                         "[G]oto [R]eferences" },
-  { "gI",         vim.lsp.buf.implementation,                                       "[G]oto [I]mplementation" },
+  { "gI",         telescope.lsp_implementations,                                    "[G]oto [I]mplementation" },
   { "<leader>D",  vim.lsp.buf.type_definition,                                      "Type [D]efinition" },
   { "<leader>ds", telescope.lsp_document_symbols,                                   "[D]ocument [S]ymbols" },
   { "<leader>ws", telescope.lsp_dynamic_workspace_symbols,                          "[W]orkspace [S]ymbols" },
@@ -185,5 +180,11 @@ M.lsp_mappings = {
     "[W]orkspace [L]ist Folders",
   },
 }
+
+M.inlay_hints = function (bufnr)
+  keymap("n", "<leader>ih", function()
+    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = bufnr })
+  end, { buffer = bufnr, desc = "Toggle [I]nlay [H]ints"})
+end
 
 return M
