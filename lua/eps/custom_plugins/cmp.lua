@@ -60,7 +60,6 @@ cmp.setup({
 		end, { "i", "s" }),
 	}),
 	sources = cmp.config.sources({
-		{ name = "supermaven" },
 		{ name = "nvim_lua" },
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
@@ -75,7 +74,6 @@ cmp.setup({
 				buffer = "[buf]",
 				nvim_lsp = "[LSP]",
 				nvim_lua = "[api]",
-				supermaven = "[ai]",
 				path = "[path]",
 				luasnip = "[snip]",
 			},
