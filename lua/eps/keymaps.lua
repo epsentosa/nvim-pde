@@ -78,6 +78,7 @@ function M.default_keymaps()
   keymap("n", "<leader>sw", telescope.grep_string, { desc = "[S]earch current [W]ord" })
   keymap("n", "<leader>sg", telescope.live_grep, { desc = "[S]earch by [G]rep" })
   keymap("n", "<leader>sd", telescope.diagnostics, { desc = "[S]earch [D]iagnostics" })
+  keymap("n", "<leader>sk", telescope.keymaps, { desc = "[S]earch [K]eymap" })
 
   keymap("n", "<leader>hh", telescope.highlights, { desc = "highlights" })
 
