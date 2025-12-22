@@ -82,6 +82,14 @@ function M.default_keymaps()
 
   keymap("n", "<leader>hh", telescope.highlights, { desc = "highlights" })
 
+  -- CopilotCHat
+  keymap("n", "<leader>zc", vim.cmd.CopilotChat, { desc = "Chat With Copilot" })
+  keymap("v", "<leader>ze", vim.cmd.CopilotChatExplain, { desc = "Explain Code" })
+  keymap("v", "<leader>zr", vim.cmd.CopilotChatReview, { desc = "Review Code" })
+  keymap("v", "<leader>zf", vim.cmd.CopilotChatFix, { desc = "Fix Code" })
+  keymap("v", "<leader>zo", vim.cmd.CopilotChatOptimize, { desc = "Optimize Code" })
+  keymap("n", "<leader>zl", vim.cmd.CopilotChatReset, { desc = "Reset Chat Window" })
+
   -- Diagnostic keymaps
   keymap("n", "[d", function ()
     vim.diagnostic.jump({ count = -1, float = true })
