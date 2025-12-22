@@ -23,5 +23,4 @@ return {
   "zbirenbaum/copilot.lua",
   config = config,
   cmd = "Copilot",
-  event = "BufReadPost",
 }
