@@ -41,6 +41,25 @@ autocmd( { "BufWinEnter" }, {
   }
 )
 
+-- open help in vertical split
+autocmd("FileType", {
+	pattern = "help",
+	command = "wincmd L",
+})
+
+-- auto resize splits when the terminal's window is resized
+autocmd("VimResized", {
+	command = "wincmd =",
+})
+
+-- no auto continue comments on new line
+autocmd("FileType", {
+	group = augroup("no_auto_comment"),
+	callback = function()
+		vim.opt_local.formatoptions:remove({ "c", "r", "o" })
+	end,
+})
+
 autocmd("LspAttach", {
   group = augroup("lsp-attach", { clear = true }),
   callback = function(event)
