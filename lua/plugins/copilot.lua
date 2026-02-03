@@ -11,14 +11,15 @@ local config = function()
 				dismiss = "<C-]>",
 			},
 		},
-		nes = {
-			enabled = true,
-			keymap = {
-				accept_and_goto = "<Tab>",
-				accept = false,
-				dismiss = "<Esc>",
-			},
-		},
+		-- nes = { --still not stable
+		-- 	enabled = true,
+		-- 	keymap = {
+		-- 		accept_and_goto = "<leader>y",
+		-- 		accept = false,
+		-- 		dismiss = "<Esc>",
+		-- 	},
+		-- },
+    copilot_model = 'claude-sonnet-4.5',
 		panel = { enabled = false },
 		filetypes = {
 			markdown = true,
