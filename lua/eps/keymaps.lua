@@ -1,11 +1,19 @@
 local M = {}
--- Shorten function name
-local keymap = vim.keymap.set
--- Silent keymap option
-local opts = { silent = true }
--- Telescope
-local telescope = require("telescope.builtin")
--- See `:help telescope.builtin`
+ -- Shorten function name
+ local keymap = vim.keymap.set
+ -- Silent keymap option
+ local opts = { silent = true }
+ -- Telescope
+ local telescope = require("telescope.builtin")
+ -- See `:help telescope.builtin`
+
+ local function get_git_find_command()
+   local git_dir = vim.fn.finddir(".git", vim.fn.getcwd() .. ";")
+   if git_dir ~= "" then
+     return { "git", "ls-files", "--cached", "--others", "--exclude-standard" }
+   end
+   return nil
+ end
 
 function M.default_keymaps()
   -- Insert --
@@ -73,7 +81,9 @@ function M.default_keymaps()
 
   keymap("n", "<leader>?", telescope.oldfiles, { desc = "[?] Find recently opened files" })
   keymap("n", "<leader><leader>", telescope.buffers, { desc = "[ ] Find existing buffers" })
-  keymap("n", "<leader>sf", telescope.find_files, { desc = "[S]earch [F]iles" })
+  keymap("n", "<leader>sf", function()
+    telescope.find_files({ find_command = get_git_find_command() })
+  end, { desc = "[S]earch [F]iles" })
   keymap("n", "<leader>sh", telescope.help_tags, { desc = "[S]earch [H]elp" })
   keymap("n", "<leader>sw", telescope.grep_string, { desc = "[S]earch current [W]ord" })
   keymap("n", "<leader>sg", telescope.live_grep, { desc = "[S]earch by [G]rep" })

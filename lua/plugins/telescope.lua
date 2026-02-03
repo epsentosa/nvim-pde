@@ -4,6 +4,17 @@ local config = function ()
   require('telescope').setup {
     defaults = {
       prompt_prefix = "   ",
+      -- Configure ripgrep to ignore .ignore files but respect .gitignore
+      vimgrep_arguments = {
+        "rg",
+        "--color=never",
+        "--no-heading",
+        "--with-filename",
+        "--line-number",
+        "--column",
+        "--smart-case",
+        "--no-ignore-dot",  -- Ignore .ignore and .rgignore files, but keep .gitignore
+      },
       mappings = {
         i = {
           ['<C-u>'] = false,
