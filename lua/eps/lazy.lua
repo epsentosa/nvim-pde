@@ -18,6 +18,9 @@ local opts = {
     default = {
         lazy = true,
     },
+    rocks = {
+        hererocks = true,
+    },
     ui = {
         size = { width = 0.5, height = 0.5 },
         border = "rounded",

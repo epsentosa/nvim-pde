@@ -16,13 +16,16 @@ local config = function ()
 end
 
 return {
-  "nvim-neorg/neorg",
-  dependencies = { "luarocks.nvim" },
+    "nvim-neorg/neorg",
+    lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
+    version = "*", -- Pin Neorg to the latest stable release
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
   init = function ()
     vim.g.maplocalleader = " "
 
     local set = vim.opt_local
     set.foldlevelstart = 2
   end,
-  config = config,
+    config = config,
 }
+

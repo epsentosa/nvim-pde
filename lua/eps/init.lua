@@ -1,4 +1,5 @@
 vim.loader.enable()
+require('vim._core.ui2').enable({})
 require("eps.lazy")
 require("eps.keymaps").default_keymaps()
 require("eps.settings")
