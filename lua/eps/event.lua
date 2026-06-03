@@ -36,7 +36,7 @@ autocmd({ "TextYankPost" }, {
 autocmd( { "BufWinEnter" }, {
   pattern = "*.sql",
   callback = function ()
-    cmd('TSDisable highlight')
+    vim.treesitter.stop()
   end
   }
 )
