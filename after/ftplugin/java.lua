@@ -39,7 +39,7 @@ local on_attach = function(client, bufnr)
 end
 
 local config = {
-  cmd = {'/usr/local/bin/jdtls'},
+  cmd = {'/opt/homebrew/bin/jdtls'},
   root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
   single_file_support = true,
   capabilities = capabilities,

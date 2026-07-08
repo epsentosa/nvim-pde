@@ -22,4 +22,4 @@ vim.diagnostic.config {
   },
 }
 
-vim.lsp.enable({"lua_ls", "gopls", "jedi_language_server", "ruff", "intelephense", "ts_ls",  "protols"})
+vim.lsp.enable({"lua_ls", "gopls", "pyright", "ruff", "intelephense", "ts_ls",  "protols"})
